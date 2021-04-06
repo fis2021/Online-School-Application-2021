@@ -1,0 +1,2 @@
+# Online-School-Application-2021
+This application aims to help students by offering them the possibility of being up to date to their online school situation and having access to useful school materials. Easy to work with, this application is designed to display all the important information that every student needs in order to have a successful scholar year, while keeping in touch with the teachers and getting constant feedback from them.
