@@ -1,45 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" hgap="10" prefHeight="668.0" prefWidth="886.0" vgap="10" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="org.fis.project.controllers.RegistrationController">
-    <padding>
-        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-    </padding>
-    <Text id="title-text" text="Online School Application" textAlignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-
-    <Label text="Username:" GridPane.rowIndex="3" />
-
-    <TextField fx:id="usernameField" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-
-    <Label text="Password:" GridPane.rowIndex="4" />
-
-    <PasswordField fx:id="passwordField" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-
-    <Label text="Role:" GridPane.rowIndex="5" />
-
-    <ChoiceBox fx:id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
-    </ChoiceBox>
-
-    <Text fx:id="registrationMessage" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
-      <children>
-          <Button onAction="#handleRegisterAction" text="Register" />
-         <Button onAction="#switchToLogin" mnemonicParsing="false" prefHeight="24.0" prefWidth="72.0" text="LogIn" />
-      </children>
-    </HBox>
-
-
-
-</GridPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="796.0" prefWidth="1215.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.RegistrationController">
+    <left>
+        <AnchorPane prefHeight="796.0" prefWidth="535.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="800.0" fitWidth="543.0" layoutX="2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@1.jpg" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </left>
+    <right>
+        <HBox BorderPane.alignment="CENTER" />
+    </right>
+    <center>
+        <AnchorPane prefHeight="796.0" prefWidth="695.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="359.0" layoutY="192.0" text="First name">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="359.0" layoutY="269.0" text="Last name">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="121.0" fitWidth="234.0" layoutX="348.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@6.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="359.0" layoutY="352.0" text="Username">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="357.0" layoutY="430.0" text="Password">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label layoutX="359.0" layoutY="512.0" text="Confirm Password">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <Label fx:id="registrationMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="93.0" text="Please enter registration credentials" textAlignment="CENTER" textFill="#ef0808" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="216.8">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="351.0" layoutY="675.0" text="Already created account? ">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="359.0" layoutY="123.0" text="Role">
+                    <font>
+                        <Font size="21.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="firstnameField" layoutX="359.0" layoutY="223.0" promptText="First name">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="lastnameField" layoutX="359.0" layoutY="301.0" promptText="Last name">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="usernameField" layoutX="359.0" layoutY="384.0" promptText="Username">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </TextField>
+                <PasswordField fx:id="passwordField" layoutX="359.0" layoutY="462.0" promptText="Password">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </PasswordField>
+                <PasswordField fx:id="confirmpasswordField" layoutX="359.0" layoutY="544.0" promptText="Confirm Password">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </PasswordField>
+                <Button layoutX="391.0" layoutY="609.0" mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="46.0" prefWidth="146.0" text="Register">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+                <Button layoutX="391.0" layoutY="721.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="43.0" prefWidth="147.0" text="Log in">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+                <ChoiceBox fx:id="role" layoutX="359.0" layoutY="154.0" prefHeight="34.0" prefWidth="211.0" stylesheets="@combo.css" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>
