@@ -9,16 +9,23 @@ import org.fis.project.exceptions.UsernameAlreadyExistsException;
 import org.fis.project.services.UserService;
 
 
-public class LogInController {
-
+public class LogInController
+{
     @FXML
     private TextField usernameField;
     @FXML
     private PasswordField passwordField;
 
     @FXML
-    public void switchToRegister() throws Exception {
+    public void switchToRegister() throws Exception
+    {
         Main.setRoot("register");
+    }
+
+    @FXML
+    public void switchToLogIn() throws Exception
+    {
+        Main.setRoot("login");
     }
 
     public void handleLogIn(){

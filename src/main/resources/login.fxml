@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" snapToPixel="false" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.LogInController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="778.0" prefWidth="1338.0" snapToPixel="false" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.LogInController">
     <left>
-        <AnchorPane prefHeight="796.0" prefWidth="535.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="800.0" prefWidth="535.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="822.0" fitWidth="543.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.19211425781247726" AnchorPane.topAnchor="-21.0">
+                <ImageView fitHeight="800.0" fitWidth="543.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@1.jpg" />
                     </image>
@@ -27,7 +27,7 @@
         <HBox BorderPane.alignment="CENTER" />
     </right>
     <center>
-        <AnchorPane prefHeight="706.0" prefWidth="513.0" BorderPane.alignment="CENTER">
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="808.0" prefWidth="803.0" BorderPane.alignment="CENTER">
             <children>
                 <Label layoutX="147.0" layoutY="338.0" text="Username">
                     <font>
@@ -49,12 +49,12 @@
                         <Font size="17.0" />
                     </font>
                 </PasswordField>
-                <Button onAction="#handleLogIn" layoutX="357.0" layoutY="525.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="146.0" text="Log in">
+                <Button layoutX="357.0" layoutY="525.0" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="46.0" prefWidth="146.0" text="Log in">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="356.0" layoutY="595.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="147.0" text="Cancel">
+                <Button layoutX="356.0" layoutY="595.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="43.0" prefWidth="147.0" text="Cancel">
                     <font>
                         <Font size="24.0" />
                     </font>
