@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" snapToPixel="false" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.LogInController">
+    <left>
+        <AnchorPane prefHeight="796.0" prefWidth="535.0" BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="822.0" fitWidth="543.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.19211425781247726" AnchorPane.topAnchor="-21.0">
+                    <image>
+                        <Image url="@1.jpg" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+    </left>
+    <right>
+        <HBox BorderPane.alignment="CENTER" />
+    </right>
+    <center>
+        <AnchorPane prefHeight="706.0" prefWidth="513.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="147.0" layoutY="338.0" text="Username">
+                    <font>
+                        <Font size="23.0" />
+                    </font>
+                </Label>
+                <Label layoutX="147.0" layoutY="399.0" text="Password">
+                    <font>
+                        <Font size="23.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="usernameField" layoutX="325.0" layoutY="340.0" promptText="Type username here ...">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </TextField>
+                <PasswordField fx:id="passwordField" layoutX="325.0" layoutY="401.0" promptText="Type password here ...">
+                    <font>
+                        <Font size="17.0" />
+                    </font>
+                </PasswordField>
+                <Button onAction="#handleLogIn" layoutX="357.0" layoutY="525.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="146.0" text="Log in">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+                <Button layoutX="356.0" layoutY="595.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="147.0" text="Cancel">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+                <ImageView fitHeight="171.0" fitWidth="171.0" layoutX="347.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@4.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="266.0" layoutY="464.0" text="Please enter username and password" textFill="#ef0c0c">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="296.0" layoutY="666.0" text="New here? Create new account">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button layoutX="356.0" layoutY="706.0" mnemonicParsing="false" onAction="#switchToRegister" prefHeight="46.0" prefWidth="146.0" text="Register">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

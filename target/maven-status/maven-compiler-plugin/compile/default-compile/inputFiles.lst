@@ -1,3 +1,8 @@
-/home/user/IdeaProjects/HelloFX/Proiect/src/main/java/org/example/App.java
-/home/user/IdeaProjects/HelloFX/Proiect/src/main/java/org/example/SystemInfo.java
-/home/user/IdeaProjects/HelloFX/Proiect/src/main/java/module-info.java
+/home/user/ProiectFis/src/main/java/org/fis/project/exceptions/CompleteAllFieldsException.java
+/home/user/ProiectFis/src/main/java/org/fis/project/controllers/RegistrationController.java
+/home/user/ProiectFis/src/main/java/org/fis/project/services/FileSystemService.java
+/home/user/ProiectFis/src/main/java/org/fis/project/services/UserService.java
+/home/user/ProiectFis/src/main/java/org/fis/project/exceptions/UsernameAlreadyExistsException.java
+/home/user/ProiectFis/src/main/java/org/fis/project/controllers/LogInController.java
+/home/user/ProiectFis/src/main/java/org/fis/project/model/User.java
+/home/user/ProiectFis/src/main/java/org/fis/project/Main.java
