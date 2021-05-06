@@ -22,8 +22,10 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
         primaryStage.setTitle("Online School Application - Registration");
-        scene=new Scene(loadFXML("register"), 300, 275);
+        scene=new Scene(loadFXML("login"), 300, 275);
         primaryStage.setScene(scene);
+
+        //        primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/9.png")));
 
         primaryStage.setWidth(1550);
         primaryStage.setHeight(835);
