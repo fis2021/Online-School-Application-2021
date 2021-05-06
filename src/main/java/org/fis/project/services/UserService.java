@@ -3,7 +3,6 @@ package org.fis.project.services;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.fis.project.exceptions.*;
-import org.fis.project.exceptions.UserNameNotLongEnough;
 import org.fis.project.model.User;
 
 import java.nio.charset.StandardCharsets;
@@ -27,23 +26,10 @@ public class UserService
         userRepository = database.getRepository(User.class);
     }
 
-    public static void addUser(String username, String password, String confirmpassword, String role, String firstname, String lastname) throws UsernameAlreadyExistsException, CompleteAllFieldsException, ConfirmPasswordException, UserNameNotLongEnough, PasswordNotLongEnough
+    public static void addUser(String username, String password, String confirmpassword, String role, String firstname, String lastname) throws UsernameAlreadyExistsException
     {
-        checkCredentialsAreNotEmpty(username , password , confirmpassword , role, firstname, lastname);
-        checkUserNameLength(username);
         checkUserDoesNotAlreadyExist(username);
-        checkPasswordLength(password, confirmpassword);
-        checkConfirmPassword(password, confirmpassword);
         userRepository.insert(new User(username, encodePassword(username, password), encodePassword(username, confirmpassword) , role, firstname, lastname));
-    }
-
-    public static boolean checkCkredentials(String username, String password){
-        for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getUsername()) &&
-                    Objects.equals(encodePassword(username , password),user.getPassword()))
-                return true;
-        }
-        return false;
     }
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException
@@ -52,30 +38,6 @@ public class UserService
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
         }
-    }
-
-    private static void checkCredentialsAreNotEmpty(String username , String password , String confirmpassword , String role, String firstname, String lastname) throws CompleteAllFieldsException
-    {
-        if(username.equals(new String("")) || password.equals(new String("")) || confirmpassword.equals(new String("")) || firstname.equals(new String("")) || lastname.equals(new String("")) || role==null)
-            throw new CompleteAllFieldsException();
-    }
-
-    private static void checkConfirmPassword(String password , String confirmpassword) throws ConfirmPasswordException
-    {
-        if(password.equals(confirmpassword) == false)
-            throw new ConfirmPasswordException(password, confirmpassword);
-    }
-
-    private static void checkUserNameLength(String username) throws UserNameNotLongEnough
-    {
-        if(username.length() < 6)
-            throw new UserNameNotLongEnough();
-    }
-
-    private static void checkPasswordLength(String password, String confirmpassword) throws PasswordNotLongEnough
-    {
-        if(password.length() < 6 || confirmpassword.length() < 6)
-            throw new PasswordNotLongEnough();
     }
 
     private static String encodePassword(String salt, String password)
