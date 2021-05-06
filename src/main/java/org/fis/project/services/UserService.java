@@ -34,6 +34,15 @@ public class UserService {
         userRepository.insert(new User(username, encodePassword(username, password), encodePassword(username, confirmpassword) , role, firstname, lastname));
     }
 
+    public static String checkCkredentials(String username, String password){
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername()) &&
+                    Objects.equals(encodePassword(username , password),user.getPassword()))
+                return user.getRole();
+        }
+        return new String("Nu exista");
+    }
+
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
