@@ -13,9 +13,11 @@ import org.fis.project.services.UserService;
 
 public class LogInController {
     @FXML
-    private TextField usernameField;
+    private Label loginMessage;
     @FXML
-    private PasswordField passwordField;
+    private TextField usernameFieldLogin;
+    @FXML
+    private PasswordField passwordFieldLogin;
 
     @FXML
     public void switchToRegister() throws Exception {
@@ -27,17 +29,13 @@ public class LogInController {
         Main.setRoot("login");
     }
 
-    @FXML
-    private Label loginMessage;
-    @FXML
-    private TextField usernameFieldLogin;
-    @FXML
-    private PasswordField passwordFieldLogin;
 
     @FXML
-    public void handleLogIn() {
-
-
+    public void handleLogIn() throws Exception{
+        if(UserService.checkCkredentials(usernameFieldLogin.getText() , passwordFieldLogin.getText()).equals("Teacher"))
+            Main.setRoot("teacher");
+        else if(UserService.checkCkredentials(usernameFieldLogin.getText() , passwordFieldLogin.getText()).equals("Student"))
+            Main.setRoot("student");
     }
 
 }
