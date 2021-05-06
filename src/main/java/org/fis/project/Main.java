@@ -24,6 +24,14 @@ public class Main extends Application {
         primaryStage.setTitle("Online School Application - Registration");
         scene=new Scene(loadFXML("register"), 300, 275);
         primaryStage.setScene(scene);
+
+        primaryStage.setWidth(1550);
+        primaryStage.setHeight(835);
+
+        primaryStage.centerOnScreen();
+        primaryStage.setMaximized(false);
+        primaryStage.setResizable(false);
+
         primaryStage.show();
     }
 
