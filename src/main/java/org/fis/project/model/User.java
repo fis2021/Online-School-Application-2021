@@ -2,8 +2,7 @@ package org.fis.project.model;
 
 import org.dizitart.no2.objects.Id;
 
-public class User
-{
+public class User {
     @Id
     private String username;
     private String password;
@@ -12,8 +11,7 @@ public class User
     private String firstname;
     private String lastname;
 
-    public User(String username, String password, String confirmpassword, String role, String firstname, String lastname)
-    {
+    public User(String username, String password, String confirmpassword, String role, String firstname, String lastname) {
         this.username = username;
         this.password = password;
         this.confirmpassword = confirmpassword;
@@ -22,8 +20,7 @@ public class User
         this.lastname = firstname;
     }
 
-    public User()
-    {
+    public User() {
     }
 
     public String getUsername()
@@ -87,8 +84,7 @@ public class User
     }
 
     @Override
-    public boolean equals(Object o)
-    {
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -100,8 +96,7 @@ public class User
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         int result = username != null ? username.hashCode() : 0;
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
