@@ -34,7 +34,10 @@ public class UserService {
         userRepository.insert(new User(username, encodePassword(username, password), encodePassword(username, confirmpassword) , role, firstname, lastname));
     }
 
-    public static String checkCkredentials(String username, String password){
+    public static String checkCkredentials(String username, String password) throws CompleteLoginDataException {
+
+        checkLoginDataNotEmpty(username, password);
+
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()) &&
                     Objects.equals(encodePassword(username , password),user.getPassword()))
@@ -68,6 +71,12 @@ public class UserService {
     private static void checkPasswordLength(String password, String confirmpassword) throws PasswordNotLongEnough {
         if(password.length() < 6 || confirmpassword.length() < 6)
             throw new PasswordNotLongEnough();
+    }
+
+    private static void checkLoginDataNotEmpty(String usernameFieldLogin , String passwordFieldLogin) throws CompleteLoginDataException
+    {
+        if(usernameFieldLogin.equals(new String("")) || passwordFieldLogin.equals(new String("")))
+            throw new CompleteLoginDataException();
     }
 
     private static String encodePassword(String salt, String password) {

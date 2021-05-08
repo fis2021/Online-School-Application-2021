@@ -1,7 +1,6 @@
 package org.fis.project.exceptions;
 
-public class CompleteAllFieldsException extends Exception
-{
+public class CompleteAllFieldsException extends Exception {
 
     public CompleteAllFieldsException()
     {
