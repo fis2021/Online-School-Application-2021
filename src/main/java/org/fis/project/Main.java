@@ -16,6 +16,7 @@ import java.nio.file.Path;
 public class Main extends Application {
 
     private static Scene scene;
+    private static FXMLLoader path;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -49,7 +50,12 @@ public class Main extends Application {
 
     private static Parent loadFXML(String fxml) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getClassLoader().getResource(fxml + ".fxml"));
+        path=fxmlLoader;
         return fxmlLoader.load();
+    }
+
+    public static FXMLLoader getPath() {
+        return path;
     }
 
     public static void main(String[] args) {

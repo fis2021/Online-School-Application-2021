@@ -2,6 +2,7 @@ package org.fis.project.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.fis.project.controllers.TeacherController;
 import org.fis.project.exceptions.*;
 import org.fis.project.exceptions.UserNameNotLongEnough;
 import org.fis.project.model.User;
@@ -45,6 +46,7 @@ public class UserService {
         }
         return new String("Nu exista");
     }
+
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
