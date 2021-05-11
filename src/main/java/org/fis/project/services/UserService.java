@@ -81,6 +81,26 @@ public class UserService {
             throw new CompleteLoginDataException();
     }
 
+    public static String FirstNameR(String username) {
+
+
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername()))
+                return user.getFirstName();
+        }
+            return "";
+    }
+
+    public static String LastNameR(String username) {
+
+
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername()))
+                return user.getLastName();
+        }
+            return "";
+    }
+
     private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
