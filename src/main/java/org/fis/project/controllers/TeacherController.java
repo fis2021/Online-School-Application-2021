@@ -12,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.fis.project.Main;
+
 import org.fis.project.model.TeacherSubjects;
 import org.fis.project.services.CatalogService;
 
