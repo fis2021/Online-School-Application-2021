@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import org.fis.project.Main;
+import org.fis.project.services.CatalogService;
 
 public class TeacherController extends Exception{
 
@@ -19,5 +20,6 @@ public class TeacherController extends Exception{
     public void switchToLogIn() throws Exception {
         Main.setRoot("login");
     }
+
 
 }
