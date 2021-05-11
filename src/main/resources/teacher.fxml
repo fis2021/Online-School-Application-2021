@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5137988960883129" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="835.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.StudentController">
+<SplitPane dividerPositions="0.5137988960883129" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="835.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.TeacherController">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
             <children>
-                <Button layoutX="1450.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="78.0" text="Log Out">
+                <Button layoutX="1365.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="163.0" text="Log Out">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
@@ -24,7 +24,7 @@
                         <TableColumn prefWidth="1534.3998230099678" resizable="false" text="Subjects" />
                     </columns>
                 </TableView>
-            <Label fx:id="helloMessage" layoutX="713.0" layoutY="20.0" prefHeight="18.0" prefWidth="186.0" text="Hello teacher!">
+            <Label fx:id="helloMessage" layoutX="483.0" layoutY="20.0" prefHeight="30.0" prefWidth="555.0" text="Hello teacher!">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
