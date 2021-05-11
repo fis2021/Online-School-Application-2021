@@ -1,2 +1,3 @@
 org/fis/project/services/CatalogService.class
 org/fis/project/model/Catalog.class
+org/fis/project/model/TeacherSubjects.class

@@ -49,6 +49,7 @@ public class LogInController {
 
                 TeacherController controller=Main.getPath().getController();
                 controller.setHelloMessage("Welcome "+usernameFieldLogin.getText());
+                controller.populateDataFromLogIn();
 
             }
             else if (UserService.checkCkredentials(usernameFieldLogin.getText(), passwordFieldLogin.getText()).equals("Student")) {

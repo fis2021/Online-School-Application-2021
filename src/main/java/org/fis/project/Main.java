@@ -11,6 +11,7 @@ import org.fis.project.services.CatalogService;
 import org.fis.project.services.FileSystemService;
 import org.fis.project.services.UserService;
 
+import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,7 +30,7 @@ public class Main extends Application {
         scene=new Scene(loadFXML("login"), 300, 275);
         primaryStage.setScene(scene);
 
-        //        primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/9.png")));
+        // primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/9.png")));
 
         primaryStage.setWidth(1550);
         primaryStage.setHeight(835);
