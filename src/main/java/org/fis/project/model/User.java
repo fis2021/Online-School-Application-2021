@@ -17,7 +17,7 @@ public class User {
         this.confirmpassword = confirmpassword;
         this.role = role;
         this.firstname = firstname;
-        this.lastname = firstname;
+        this.lastname = lastname;
     }
 
     public User() {
