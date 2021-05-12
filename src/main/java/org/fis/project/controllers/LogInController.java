@@ -48,11 +48,9 @@ public class LogInController {
                 Main.setRoot("teacher");
 
                 TeacherController controller=Main.getPath().getController();
-
                 controller.setHelloMessage("Welcome "+usernameFieldLogin.getText());
                 controller.populateDataFromLogIn(usernameFieldLogin.getText());
-
-
+                TeacherSubjectsController.setUsername(usernameFieldLogin.getText());
             }
             else if (UserService.checkCkredentials(usernameFieldLogin.getText(), passwordFieldLogin.getText()).equals("Student")) {
                 loginMessage.setTextFill(Color.web("#008000", 0.8));
