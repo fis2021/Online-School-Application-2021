@@ -5,11 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.fis.project.model.Catalog;
 import javafx.scene.image.Image;
 import org.fis.project.model.User;
+import org.fis.project.services.CatalogService;
 import org.fis.project.services.FileSystemService;
 import org.fis.project.services.UserService;
 
+import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -23,11 +26,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
+        CatalogService.initDatabase();
+
         primaryStage.setTitle("Online School Application");
         scene=new Scene(loadFXML("login"), 300, 275);
         primaryStage.setScene(scene);
 
-        primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/9.png")));
+        // primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/9.png")));
 
         primaryStage.setWidth(1550);
         primaryStage.setHeight(835);

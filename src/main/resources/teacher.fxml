@@ -11,20 +11,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5137988960883129" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="835.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.StudentController">
+<SplitPane dividerPositions="0.5137988960883129" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="835.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.TeacherController">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
             <children>
-                <Button layoutX="1450.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="78.0" text="Log Out">
+                <Button layoutX="1365.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="163.0" text="Log Out">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <TableView prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                <TableView fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                     <columns>
-                        <TableColumn prefWidth="1534.3998230099678" resizable="false" text="Subjects" />
+                        <TableColumn fx:id="colSubject" prefWidth="1534.3998230099678" resizable="false" text="Subjects" />
                     </columns>
                 </TableView>
-            <Label fx:id="helloMessage" layoutX="713.0" layoutY="20.0" prefHeight="18.0" prefWidth="186.0" text="Hello teacher!">
+            <Label fx:id="helloMessage" layoutX="483.0" layoutY="20.0" prefHeight="30.0" prefWidth="555.0" text="Hello teacher!">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
@@ -42,7 +42,7 @@
                         <Font size="34.0" />
                     </font>
                 </Label>
-                <Button layoutX="148.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="330.0" text="Add subject">
+                <Button layoutX="148.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddingSubject" prefHeight="51.0" prefWidth="330.0" text="Add subject">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -57,7 +57,7 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-            <TextField layoutX="148.0" layoutY="122.0" prefHeight="50.0" prefWidth="330.0" promptText="Type subject to add here...">
+            <TextField fx:id="addSubject" layoutX="148.0" layoutY="122.0" prefHeight="50.0" prefWidth="330.0" promptText="Type subject to add here...">
                <font>
                   <Font size="18.0" />
                </font>

@@ -14,7 +14,7 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
          <children>
-            <Button layoutX="1450.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="78.0" text="Log Out">
+            <Button layoutX="1434.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="94.0" text="Log Out">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
@@ -24,7 +24,7 @@
                 <TableColumn prefWidth="758.3999633789062" resizable="false" text="Teacher" />
               </columns>
             </TableView>
-            <Label fx:id="helloMessage" layoutX="710.0" layoutY="20.0" prefHeight="27.0" prefWidth="314.0" text="Hello student!">
+            <Label fx:id="helloMessage" layoutX="456.0" layoutY="20.0" prefHeight="30.0" prefWidth="568.0" text="Hello student!">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>

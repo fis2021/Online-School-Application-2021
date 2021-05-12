@@ -38,7 +38,7 @@ public class LogInController {
 
 
     @FXML
-    public void handleLogIn() {
+    public void handleLogIn() throws Exception{
 
         try {
             if (UserService.checkCkredentials(usernameFieldLogin.getText(), passwordFieldLogin.getText()).equals("Teacher")) {
@@ -48,7 +48,10 @@ public class LogInController {
                 Main.setRoot("teacher");
 
                 TeacherController controller=Main.getPath().getController();
-                controller.setHelloMessage("Welcome "+ usernameFieldLogin.getText());
+
+                controller.setHelloMessage("Welcome "+usernameFieldLogin.getText());
+                controller.populateDataFromLogIn(usernameFieldLogin.getText());
+
 
             }
             else if (UserService.checkCkredentials(usernameFieldLogin.getText(), passwordFieldLogin.getText()).equals("Student")) {
@@ -69,11 +72,6 @@ public class LogInController {
                 loginMessage.setTextFill(Color.web("#ef0c0c", 0.8));
                 loginMessage.setText("Please complete all log in fields!");
         }
-        catch (Exception e) {
-                System.out.println("Hm");
-                System.out.println(e.getMessage());
-        }
-
 
     }
 
