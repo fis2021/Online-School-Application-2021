@@ -9,6 +9,7 @@ public class TeacherSubjects {
     public TeacherSubjects(String subjectName){
         this.subjectName=new SimpleStringProperty(subjectName);
     }
+    public TeacherSubjects(){}
 
     public String getSubjectName() {
         return subjectName.get();
