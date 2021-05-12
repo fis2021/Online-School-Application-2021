@@ -25,7 +25,7 @@ public class CatalogService {
     public static void addTeacher_Subject(String teacherUsername,String teacherSubject){
         Catalog c = new Catalog(teacherUsername);
         c.setSubjectId(teacherSubject);
-        catalogRepository.insert(c);;
+        catalogRepository.insert(c);
     }
 
     public static void test(){

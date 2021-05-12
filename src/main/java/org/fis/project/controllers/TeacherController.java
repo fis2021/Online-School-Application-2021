@@ -62,4 +62,5 @@ public class TeacherController extends Exception {
         tableView.getItems().add(new TeacherSubjects(addSubject.getText()));
         CatalogService.test();
     }
+
 }
