@@ -60,7 +60,17 @@ public class TeacherController extends Exception {
     public void handleAddingSubject(){
         CatalogService.addTeacher_Subject(teacherUsername,addSubject.getText());
         tableView.getItems().add(new TeacherSubjects(addSubject.getText()));
-        CatalogService.test();
     }
+
+    public void handleRemovingSubject(){
+
+        ObservableList<TeacherSubjects> allSubjects,singleSubjects;
+        singleSubjects=tableView.getSelectionModel().getSelectedItems();
+        CatalogService.clearSubject(singleSubjects.get(0).getSubjectName());
+
+        allSubjects= tableView.getItems();
+        singleSubjects.forEach(allSubjects::remove);
+    }
+
 
 }

@@ -47,4 +47,12 @@ public class CatalogService {
         return teacherSubject;
     }
 
+    public static void clearSubject(String subject){
+        for(Catalog catalog:catalogRepository.find()) {
+            if(catalog.getSubjectId().equals(subject)) {
+                catalogRepository.remove(catalog);
+            }
+        }
+    }
+
 }
