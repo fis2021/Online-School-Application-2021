@@ -9,13 +9,13 @@ public class Catalog {
     private static int nr;
 
     @Id
-    private Integer nrId;
+    private String nrId;
     private String teacherId;
     private String studentId;
     private String subjectId;
 
     public Catalog(String teacherId) {
-        this.nrId=new Integer(nr);
+        nrId="ID"+nr;
         nr=nr+1;
         this.teacherId=teacherId;
     }
@@ -23,6 +23,7 @@ public class Catalog {
     public Catalog(){
 
     }
+
 
     public String getTeacherId() {
         return teacherId;
