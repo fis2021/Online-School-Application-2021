@@ -52,7 +52,7 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="1062.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="See subject information">
+                <Button layoutX="1062.0" layoutY="203.0" mnemonicParsing="false" onAction="#switchToSubjects" prefHeight="51.0" prefWidth="329.0" text="See subject information">
                     <font>
                         <Font size="24.0" />
                     </font>

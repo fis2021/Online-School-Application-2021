@@ -46,6 +46,11 @@ public class TeacherController extends Exception {
         Main.setRoot("login");
     }
 
+    @FXML
+    public void switchToSubjects() throws Exception {
+        Main.setRoot("teacher2");
+    }
+
     public void populateDataFromLogIn(String username){
         teacherUsername=username;
         colSubject.setCellValueFactory(new PropertyValueFactory<>("SubjectName"));
