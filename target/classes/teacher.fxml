@@ -11,29 +11,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-<SplitPane dividerPositions="0.5728643216080402" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="835.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.TeacherController">
-  <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="598.0">
-         <children>
-            <TableView fx:id="tableView" layoutY="29.0" prefHeight="218.0" prefWidth="598.0" AnchorPane.bottomAnchor="-22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
-              <columns>
-                <TableColumn fx:id="colSubject" prefWidth="1547.0" text="Subject" />
-              </columns>
-            </TableView>
-            <ButtonBar layoutX="489.0" prefHeight="28.0" prefWidth="65.0" />
-            <Button layoutX="1464.0" layoutY="2.0" mnemonicParsing="false" onAction="#switchToLogIn" text="Log Out" />
-            <Label fx:id="helloMessage" layoutX="1162.0" layoutY="6.0" prefHeight="16.0" prefWidth="239.0" text="Hello Teacher" />
-         </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="66.0" prefWidth="598.0">
-         <children>
-            <Button layoutX="608.0" layoutY="254.0" mnemonicParsing="false" text="Subject Information" AnchorPane.leftAnchor="645.0" AnchorPane.rightAnchor="645.0" />
-            <Button onAction="#populateData" layoutX="645.0" layoutY="65.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="184.0" text="Add Subject" AnchorPane.leftAnchor="645.0" AnchorPane.rightAnchor="645.0" />
-            <Button layoutX="645.0" layoutY="153.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="184.0" text="Delete Subject" AnchorPane.leftAnchor="645.0" AnchorPane.rightAnchor="645.0" />
-
-         </children></AnchorPane>
-  </items>
-=======
 <SplitPane dividerPositions="0.5137988960883129" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="835.0" prefWidth="1550.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.TeacherController">
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -42,9 +19,9 @@
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <TableView prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                <TableView fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                     <columns>
-                        <TableColumn prefWidth="1534.3998230099678" resizable="false" text="Subjects" />
+                        <TableColumn fx:id="colSubject" prefWidth="1534.3998230099678" resizable="false" text="Subjects" />
                     </columns>
                 </TableView>
             <Label fx:id="helloMessage" layoutX="483.0" layoutY="20.0" prefHeight="30.0" prefWidth="555.0" text="Hello teacher!">
@@ -65,7 +42,7 @@
                         <Font size="34.0" />
                     </font>
                 </Label>
-                <Button layoutX="148.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="330.0" text="Add subject">
+                <Button layoutX="148.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddingSubject" prefHeight="51.0" prefWidth="330.0" text="Add subject">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -80,7 +57,7 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-            <TextField layoutX="148.0" layoutY="122.0" prefHeight="50.0" prefWidth="330.0" promptText="Type subject to add here...">
+            <TextField fx:id="addSubject" layoutX="148.0" layoutY="122.0" prefHeight="50.0" prefWidth="330.0" promptText="Type subject to add here...">
                <font>
                   <Font size="18.0" />
                </font>
@@ -97,5 +74,4 @@
             </TextField>
             </children></AnchorPane>
     </items>
->>>>>>> main
 </SplitPane>

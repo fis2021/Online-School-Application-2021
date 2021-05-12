@@ -10,14 +10,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.fis.project.Main;
 
+import org.fis.project.model.Catalog;
 import org.fis.project.model.TeacherSubjects;
+import org.fis.project.model.User;
 import org.fis.project.services.CatalogService;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.util.LinkedList;
+
 
 public class TeacherController extends Exception {
 
@@ -27,7 +30,11 @@ public class TeacherController extends Exception {
     private TableView<TeacherSubjects> tableView;
     @FXML
     private TableColumn<TeacherSubjects,String> colSubject;
+    @FXML
+    private TextField addSubject;
 
+
+    private String teacherUsername;
 
     @FXML
     public void setHelloMessage(String username) {
@@ -39,15 +46,20 @@ public class TeacherController extends Exception {
         Main.setRoot("login");
     }
 
-
-    public void populateDataFromLogIn(){
-        ObservableList<TeacherSubjects> observableList= FXCollections.observableArrayList(
-                new TeacherSubjects("Fis"),
-                new TeacherSubjects("Oc"),
-                new TeacherSubjects("Bd")
-        );
+    public void populateDataFromLogIn(String username){
+        teacherUsername=username;
         colSubject.setCellValueFactory(new PropertyValueFactory<>("SubjectName"));
-        tableView.setItems(observableList);
+
+        LinkedList<String> teacherSubject=CatalogService.teacherSubjects(teacherUsername);
+
+        for(String subject:teacherSubject){
+            tableView.getItems().add(new TeacherSubjects(subject));
+        }
     }
-    public void populateData(){}
+
+    public void handleAddingSubject(){
+        CatalogService.addTeacher_Subject(teacherUsername,addSubject.getText());
+        tableView.getItems().add(new TeacherSubjects(addSubject.getText()));
+        CatalogService.test();
+    }
 }

@@ -5,11 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-<<<<<<< HEAD
 import org.fis.project.model.Catalog;
-=======
 import javafx.scene.image.Image;
->>>>>>> main
 import org.fis.project.model.User;
 import org.fis.project.services.CatalogService;
 import org.fis.project.services.FileSystemService;
@@ -29,9 +26,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
-
         CatalogService.initDatabase();
-        primaryStage.setTitle("Online School Application - Registration");
+
+        primaryStage.setTitle("Online School Application");
         scene=new Scene(loadFXML("login"), 300, 275);
         primaryStage.setScene(scene);
 

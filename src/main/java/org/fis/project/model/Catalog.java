@@ -14,12 +14,10 @@ public class Catalog {
     private String studentId;
     private String subjectId;
 
-    public Catalog(String teacherId, String studentId, String subjectId) {
+    public Catalog(String teacherId) {
         this.nrId=new Integer(nr);
         nr=nr+1;
         this.teacherId=teacherId;
-        this.studentId=studentId;
-        this.subjectId=subjectId;
     }
 
     public Catalog(){
@@ -49,4 +47,5 @@ public class Catalog {
     public void setSubjectId(String subjectId) {
         this.subjectId = subjectId;
     }
+
 }
