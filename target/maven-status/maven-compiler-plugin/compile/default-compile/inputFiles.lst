@@ -9,6 +9,7 @@
 /home/user/Online-School-Application-2021/src/main/java/org/fis/project/exceptions/CompleteLoginDataException.java
 /home/user/Online-School-Application-2021/src/main/java/org/fis/project/services/FileSystemService.java
 /home/user/Online-School-Application-2021/src/main/java/org/fis/project/model/TeacherSubjects.java
+/home/user/Online-School-Application-2021/src/main/java/org/fis/project/model/SubjectInformation.java
 /home/user/Online-School-Application-2021/src/main/java/org/fis/project/exceptions/ConfirmPasswordException.java
 /home/user/Online-School-Application-2021/src/main/java/org/fis/project/model/Catalog.java
 /home/user/Online-School-Application-2021/src/main/java/org/fis/project/services/UserService.java
