@@ -3,8 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,14 +17,6 @@
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <TableView prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
-                    <columns>
-                        <TableColumn fx:id="students" prefWidth="380.0" resizable="false" text="Final grade" />
-                        <TableColumn fx:id="courseMaterials" prefWidth="380.0" resizable="false" text="Number of presences" />
-                        <TableColumn fx:id="homework" prefWidth="380.0" resizable="false" text="Number of absences" />
-                  <TableColumn fx:id="homework1" prefWidth="395.199951171875" resizable="false" text="Homework uploaded" />
-                    </columns>
-                </TableView>
                 <Label fx:id="helloMessage" layoutX="713.0" layoutY="20.0" prefHeight="18.0" prefWidth="186.0" text="Student">
                     <font>
                         <Font name="Arial Bold" size="24.0" />
@@ -36,6 +27,76 @@
                         <Image url="@17.png" />
                     </image>
                 </ImageView>
+                <Label layoutX="176.0" layoutY="70.0" prefHeight="30.0" prefWidth="140.0" text="First name:">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="176.0" layoutY="119.0" prefHeight="30.0" prefWidth="140.0" text="Last name:">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="176.0" layoutY="164.0" prefHeight="27.0" prefWidth="140.0" text="Username:">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="176.0" layoutY="217.0" prefHeight="30.0" prefWidth="140.0" text="Final grade:">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="176.0" layoutY="256.0" prefHeight="30.0" prefWidth="146.0" text="Presences:">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="176.0" layoutY="295.0" prefHeight="30.0" prefWidth="146.0" text="Absences:">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="317.0" fitWidth="442.0" layoutX="980.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@9.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="176.0" layoutY="383.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="253.0" text="See homework uploads">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Label layoutX="290.0" layoutY="70.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="290.0" layoutY="119.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="290.0" layoutY="162.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="290.0" layoutY="217.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="290.0" layoutY="256.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="290.0" layoutY="295.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                    <font>
+                        <Font name="Arial Bold" size="18.0" />
+                    </font>
+                </Label>
             </children></AnchorPane>
         <AnchorPane maxHeight="315.0" minHeight="315.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
             <children>
@@ -49,26 +110,36 @@
                         <Font size="34.0" />
                     </font>
                 </Label>
-                <Button layoutX="61.0" layoutY="178.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add grade">
+                <Button layoutX="126.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add grade">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="419.0" layoutY="178.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add presence">
+                <Button layoutX="595.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add presence">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-            <Button layoutX="762.0" layoutY="178.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add absence">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button layoutX="1128.0" layoutY="178.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Check homework">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
+                <Button layoutX="1093.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add absence">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Button>
+                <TextField alignment="CENTER" layoutX="126.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" text="Type grade to add...">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <TextField alignment="CENTER" layoutX="594.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" text="Type number of presences to add...">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <TextField alignment="CENTER" layoutX="1092.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" text="Type number of absences to add...">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
             </children></AnchorPane>
     </items>
 </SplitPane>
