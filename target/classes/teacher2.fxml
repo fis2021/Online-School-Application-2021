@@ -44,7 +44,7 @@
                         <Image url="@14.png" />
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Teacher Main Dashboard 2" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
+                <Label alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Teacher Subject Dashboard" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
                     <font>
                         <Font size="34.0" />
                     </font>
@@ -69,12 +69,12 @@
                         <Font size="16.0" />
                     </font>
                 </TextField>
-            <Button layoutX="1052.0" layoutY="103.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add course material">
+            <Button fx:id="addcm" layoutX="1052.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="51.0" prefWidth="329.0" text="Add course material">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="1052.0" layoutY="214.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Homework assignment">
+            <Button fx:id="addhm" layoutX="1052.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleButtonClick2" prefHeight="51.0" prefWidth="329.0" text="Homework assignment">
                <font>
                   <Font size="24.0" />
                </font>
