@@ -1,5 +1,6 @@
 package org.fis.project.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -155,4 +156,13 @@ public class TeacherSubjectsController {
     }
 
 
+    public void handleRemoveStudent() {
+        ObservableList<SubjectInformation> allStudents,singleStudent;
+        singleStudent=tableView.getSelectionModel().getSelectedItems();
+
+        CatalogService.clearStudent(teacherUsername,singleStudent.get(0).getStudentName(),subjectName);
+
+        allStudents= tableView.getItems();
+        singleStudent.forEach(allStudents::remove);
+    }
 }
