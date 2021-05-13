@@ -49,6 +49,11 @@ public class TeacherController extends Exception {
     @FXML
     public void switchToSubjects() throws Exception {
         Main.setRoot("teacher2");
+
+        TeacherSubjectsController controller=Main.getPath().getController();
+        ObservableList<TeacherSubjects> subject;
+        subject=tableView.getSelectionModel().getSelectedItems();
+        controller.setHelloMessage(subject.get(0).getSubjectName());
     }
 
     public void populateDataFromLogIn(String username){
