@@ -59,7 +59,7 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="609.0" layoutY="146.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="View or evaluate student">
+                <Button layoutX="609.0" layoutY="146.0" mnemonicParsing="false" onAction="#switchToStudentView" prefHeight="51.0" prefWidth="329.0" text="View or evaluate student">
                     <font>
                         <Font size="24.0" />
                     </font>
