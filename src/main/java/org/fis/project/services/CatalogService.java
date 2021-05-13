@@ -28,9 +28,16 @@ public class CatalogService {
         catalogRepository.insert(c);
     }
 
+    public static void addTeacher_Student_Subject(String teacherUsername,String studentUsername,String subjectName){
+        Catalog c = new Catalog(teacherUsername);
+        c.setSubjectId(subjectName);
+        c.setStudentId(studentUsername);
+        catalogRepository.insert(c);
+    }
+
     public static void test(){
         for(Catalog catalog:catalogRepository.find()) {
-            System.out.println(catalog.getSubjectId());
+            System.out.println(catalog.getStudentId());
         }
     }
 
@@ -39,12 +46,25 @@ public class CatalogService {
         LinkedList<String> teacherSubject =new LinkedList<String>();
 
         for(Catalog catalog:catalogRepository.find()){
-            if(catalog.getTeacherId().equals(teacherUsername)){
+            if(catalog.getTeacherId().equals(teacherUsername) && catalog.getStudentId()==null){
                 teacherSubject.add(catalog.getSubjectId());
             }
         }
 
         return teacherSubject;
+    }
+
+    public static LinkedList<String> studentsSubject(String teacherUsername,String subjectName){
+
+        LinkedList<String> students =new LinkedList<String>();
+
+        for(Catalog catalog:catalogRepository.find()){
+            if(catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId()!=null){
+                students.add(catalog.getStudentId());
+            }
+        }
+
+        return students;
     }
 
     public static void clearSubject(String subject){

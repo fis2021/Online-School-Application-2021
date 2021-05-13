@@ -20,6 +20,12 @@ public class Catalog {
         this.teacherId=teacherId;
     }
 
+    public Catalog(String teacherId,String studentId,String subjectId){
+        this.teacherId=teacherId;
+        this.studentId=studentId;
+        this.subjectId=subjectId;
+    }
+
     public Catalog(){
 
     }

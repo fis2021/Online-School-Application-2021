@@ -19,7 +19,7 @@
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <TableView prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                <TableView fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                     <columns>
                         <TableColumn fx:id="students" prefWidth="500.0" resizable="false" text="Students" />
                   <TableColumn fx:id="courseMaterials" prefWidth="500.0" resizable="false" text="Course materials" />
@@ -49,7 +49,7 @@
                         <Font size="34.0" />
                     </font>
                 </Label>
-                <Button layoutX="148.0" layoutY="129.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="330.0" text="Add student">
+                <Button layoutX="148.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleAddStudents" prefHeight="51.0" prefWidth="330.0" text="Add student">
                     <font>
                         <Font size="24.0" />
                     </font>
@@ -64,7 +64,7 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <TextField layoutX="148.0" layoutY="38.0" prefHeight="50.0" prefWidth="330.0" promptText="Type username of student  to add here...">
+                <TextField fx:id="addStudent" layoutX="148.0" layoutY="38.0" prefHeight="50.0" prefWidth="330.0" promptText="Type username of student  to add here...">
                     <font>
                         <Font size="16.0" />
                     </font>
