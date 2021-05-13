@@ -77,7 +77,7 @@ public class TeacherController extends Exception {
 
         ObservableList<TeacherSubjects> allSubjects,singleSubjects;
         singleSubjects=tableView.getSelectionModel().getSelectedItems();
-        CatalogService.clearSubject(singleSubjects.get(0).getSubjectName());
+        CatalogService.clearSubject(teacherUsername,singleSubjects.get(0).getSubjectName());
 
         allSubjects= tableView.getItems();
         singleSubjects.forEach(allSubjects::remove);

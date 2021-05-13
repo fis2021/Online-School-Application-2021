@@ -67,9 +67,9 @@ public class CatalogService {
         return students;
     }
 
-    public static void clearSubject(String subject){
+    public static void clearSubject(String teacher, String subject){
         for(Catalog catalog:catalogRepository.find()) {
-            if(catalog.getSubjectId().equals(subject)) {
+            if(catalog.getTeacherId().equals(teacher) && catalog.getSubjectId().equals(subject)) {
                 catalogRepository.remove(catalog);
                 break;
             }
