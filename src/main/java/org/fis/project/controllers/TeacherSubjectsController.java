@@ -46,6 +46,11 @@ public class TeacherSubjectsController {
         Main.setRoot("login");
     }
 
+    @FXML
+    public void switchToStudentView() throws Exception {
+        Main.setRoot("teacher5");
+    }
+
     private static String username;
     public static void setUsername(String username) {
         TeacherSubjectsController.username = username;
@@ -60,6 +65,8 @@ public class TeacherSubjectsController {
         controller.setHelloMessage("Welcome "+username);
         controller.populateDataFromLogIn(username);
     }
+
+
 
     public void handleAddStudents() {
         CatalogService.addTeacher_Student_Subject(teacherUsername,addStudent.getText(),subjectName);
