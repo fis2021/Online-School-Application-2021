@@ -54,6 +54,7 @@ public class TeacherController extends Exception {
         ObservableList<TeacherSubjects> subject;
         subject=tableView.getSelectionModel().getSelectedItems();
         controller.setHelloMessage(subject.get(0).getSubjectName());
+        controller.populateDataFromDashboard(teacherUsername,subject.get(0).getSubjectName());
     }
 
     public void populateDataFromLogIn(String username){
