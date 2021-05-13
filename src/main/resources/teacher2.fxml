@@ -54,7 +54,7 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="148.0" layoutY="214.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="330.0" text="Delete student">
+                <Button onAction="#handleRemoveStudent" layoutX="148.0" layoutY="214.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="330.0" text="Delete student">
                     <font>
                         <Font size="24.0" />
                     </font>

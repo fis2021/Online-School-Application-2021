@@ -76,4 +76,13 @@ public class CatalogService {
         }
     }
 
+    public static void clearStudent(String teacher, String student,String subject){
+        for(Catalog catalog:catalogRepository.find()) {
+            if(catalog.getStudentId()!=null && catalog.getStudentId().equals(student) && catalog.getTeacherId().equals(teacher) && catalog.getSubjectId().equals(subject)) {
+                catalogRepository.remove(catalog);
+                break;
+            }
+        }
+    }
+
 }
