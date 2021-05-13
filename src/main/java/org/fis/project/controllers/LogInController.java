@@ -60,6 +60,7 @@ public class LogInController {
 
                 StudentController controller=Main.getPath().getController();
                 controller.setHelloMessage("Welcome "+usernameFieldLogin.getText());
+                controller.populateDataFromLogInStudent(usernameFieldLogin.getText());
             }
             else {
                 loginMessage.setTextFill(Color.web("#ef0c0c", 0.8));
