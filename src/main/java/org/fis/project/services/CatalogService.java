@@ -51,6 +51,7 @@ public class CatalogService {
         for(Catalog catalog:catalogRepository.find()) {
             if(catalog.getSubjectId().equals(subject)) {
                 catalogRepository.remove(catalog);
+                break;
             }
         }
     }
