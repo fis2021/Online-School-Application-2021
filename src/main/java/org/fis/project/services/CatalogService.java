@@ -1,5 +1,6 @@
 package org.fis.project.services;
 
+import javafx.util.Pair;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.fis.project.exceptions.*;
@@ -65,6 +66,19 @@ public class CatalogService {
         }
 
         return students;
+    }
+
+    public static LinkedList<Pair<String, String>> studentSubjectsTeachers(String studentUsername) {
+
+        LinkedList<Pair<String,String>> subjects_Teachers=new LinkedList<Pair<String,String>>();
+
+        for(Catalog catalog:catalogRepository.find()){
+            if(catalog.getStudentId()!=null && catalog.getStudentId().equals(studentUsername)){
+                subjects_Teachers.add(new Pair<String,String>(catalog.getSubjectId(), catalog.getTeacherId()));
+            }
+        }
+
+        return subjects_Teachers;
     }
 
     public static void clearSubject(String teacher, String subject){
