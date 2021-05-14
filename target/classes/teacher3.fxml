@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.TeacherAddMaterialsController">
    <children>
       <Label layoutX="55.0" layoutY="29.0" prefHeight="32.0" prefWidth="202.0" text="Material title:">
@@ -21,8 +20,8 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextArea layoutX="54.0" layoutY="139.0" prefHeight="199.0" prefWidth="490.0" />
-      <Button layoutX="436.0" layoutY="355.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" text="Add material">
+      <TextArea fx:id="courseMaterials" layoutX="54.0" layoutY="139.0" prefHeight="199.0" prefWidth="490.0" />
+      <Button layoutX="436.0" layoutY="355.0" mnemonicParsing="false" onAction="#addCourseMaterials" prefHeight="32.0" prefWidth="105.0" text="Add material">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>

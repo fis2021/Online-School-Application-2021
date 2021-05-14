@@ -128,6 +128,10 @@ public class TeacherSubjectsController {
             stage2.centerOnScreen();
             stage2.initModality(Modality.WINDOW_MODAL);
 
+            TeacherAddMaterialsController controller=path.getController();
+            String materials=CatalogService.searchCourseMaterials(teacherUsername,subjectName);
+            controller.populateDataFromTeacher(teacherUsername,subjectName,materials);
+
             stage2.show();
         }
         catch (Exception e) {

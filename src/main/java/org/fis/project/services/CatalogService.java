@@ -118,10 +118,20 @@ public class CatalogService {
         return "";
     }
 
+
     public static void addGrade(String teacherUsername, String studentUsername, String subjectName, String grade) {
         for(Catalog catalog:catalogRepository.find()) {
-            if(catalog.getStudentId()!=null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
+            if (catalog.getStudentId() != null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
                 catalog.setGrade(grade);
+
+                catalogRepository.update(catalog);
+            }
+        }
+    }
+    public static void addCourseMaterials(String teacherUsername, String subjectName, String materials) {
+        for(Catalog catalog:catalogRepository.find()) {
+            if(catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId()==null) {
+                catalog.setCourseMaterials(materials);
                 catalogRepository.update(catalog);
                 break;
             }
@@ -170,6 +180,15 @@ public class CatalogService {
         for (Catalog catalog : catalogRepository.find()) {
             if (catalog.getStudentId() != null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
                 return catalog.getPresence();
+            }
+        }
+            return "";
+    }
+
+    public static String searchCourseMaterials(String teacherUsername, String subjectName) {
+        for (Catalog catalog : catalogRepository.find()) {
+            if (catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName)) {
+                return catalog.getCourseMaterials();
             }
         }
         return "";

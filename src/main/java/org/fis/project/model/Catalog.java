@@ -17,6 +17,7 @@ public class Catalog {
     private String grade;
     private String presence;
     private String absence;
+    private String courseMaterials;
 
     public Catalog(String teacherId) {
         nrId="ID"+nr;
@@ -91,4 +92,12 @@ public class Catalog {
         this.absence = absence;
     }
 
+
+    public String getCourseMaterials() {
+        return courseMaterials;
+    }
+
+    public void setCourseMaterials(String courseMaterials) {
+        this.courseMaterials = courseMaterials;
+    }
 }
