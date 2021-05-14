@@ -18,9 +18,24 @@ public class TeacherAddHomeworkController {
 
     private String teacherUsername;
     private String subjectName;
-    public void populateDataFromTeacher(String teacherUsername , String subjectName,String requirements) {
+    private String studentUsername;
+    public void populateDataFromTeacher(String teacherUsername , String subjectName,String requirements,String solution) {
         this.teacherUsername = teacherUsername;
         this.subjectName = subjectName;
         homeworkRequirements.setText(requirements);
+        homeworkRequirements.setEditable(true);
+        homeworkSolution.setText(solution);
+    }
+
+    public void handleHmSolution(){
+        CatalogService.addHomeworkSolution(teacherUsername,studentUsername,subjectName,homeworkSolution.getText());
+    }
+    public void populateDataFromStudent(String teacherUsername,String studentUsername,String subjectName,String requirements,String solution){
+        this.teacherUsername=teacherUsername;
+        this.studentUsername=studentUsername;
+        this.subjectName=subjectName;
+        homeworkRequirements.setText(requirements);
+        homeworkRequirements.setEditable(false);
+        homeworkSolution.setText(solution);
     }
 }

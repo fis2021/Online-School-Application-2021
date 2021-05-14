@@ -20,7 +20,12 @@
         </Label>
       <TextArea fx:id="homeworkRequirements" layoutX="55.0" layoutY="46.0" prefHeight="91.0" prefWidth="490.0" />
       <TextArea fx:id="homeworkSolution" layoutX="55.0" layoutY="171.0" prefHeight="170.0" prefWidth="490.0" />
-      <Button onAction="#handleHmRequirements" layoutX="439.0" layoutY="354.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="105.0" text="Add homework">
+      <Button layoutX="439.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleHmRequirements" prefHeight="32.0" prefWidth="121.0" text="Add homework">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button layoutX="55.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleHmSolution" prefHeight="32.0" prefWidth="121.0" text="Submit">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>

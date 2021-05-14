@@ -57,7 +57,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="1157.0" layoutY="158.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="270.0" text="Upload homework">
+            <Button layoutX="1157.0" layoutY="158.0" mnemonicParsing="false" onAction="#addSolution" prefHeight="51.0" prefWidth="270.0" text="Upload homework">
                <font>
                   <Font size="24.0" />
                </font>
