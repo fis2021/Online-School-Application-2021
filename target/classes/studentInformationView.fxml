@@ -12,7 +12,7 @@
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
             <children>
-                <Button layoutX="1450.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="78.0" text="Log Out">
+                <Button layoutX="1396.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="132.0" text="Log Out">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
@@ -54,7 +54,7 @@
                         <Image url="@9.png" />
                     </image>
                 </ImageView>
-                <Label layoutX="316.0" layoutY="129.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                <Label fx:id="subject" layoutX="316.0" layoutY="129.0" prefHeight="30.0" prefWidth="140.0" text="...">
                     <font>
                         <Font name="Arial Bold" size="30.0" />
                     </font>

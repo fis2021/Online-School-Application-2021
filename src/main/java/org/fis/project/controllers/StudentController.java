@@ -42,6 +42,16 @@ public class StudentController {
     @FXML
     public void switchToInformationView() throws Exception {
         Main.setRoot("studentInformationView");
+        StudentInformationViewController controller=Main.getPath().getController();
+        ObservableList<StudentTable>subject;
+        ObservableList<StudentTable>teacher;
+        subject=tableView.getSelectionModel().getSelectedItems();
+        teacher=tableView.getSelectionModel().getSelectedItems();
+        String grade=CatalogService.searchGrade(teacher.get(0).getStudentTeachers(),studentUsername,subject.get(0).getStudentSubjects());
+        String presence=CatalogService.searchPresence(teacher.get(0).getStudentTeachers(),studentUsername,subject.get(0).getStudentSubjects());
+        String absence=CatalogService.searchAbsence(teacher.get(0).getStudentTeachers(),studentUsername,subject.get(0).getStudentSubjects());
+        controller.setHelloMessage();
+        controller.populateDataToStudentInformationView(subject.get(0).getStudentSubjects(),grade,presence,absence);
     }
 
     private String studentUsername;
