@@ -14,6 +14,7 @@ public class Catalog {
     private String studentId;
     private String subjectId;
     private String homeworkRequirements;
+    private String courseMaterials;
 
     public Catalog(String teacherId) {
         nrId="ID"+nr;
@@ -64,4 +65,11 @@ public class Catalog {
         this.homeworkRequirements = homeworkRequirements;
     }
 
+    public String getCourseMaterials() {
+        return courseMaterials;
+    }
+
+    public void setCourseMaterials(String courseMaterials) {
+        this.courseMaterials = courseMaterials;
+    }
 }
