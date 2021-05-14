@@ -42,22 +42,17 @@
                   <Font size="34.0" />
                </font>
             </Label>
-            <Button layoutX="115.0" layoutY="158.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="270.0" text="See grades">
+            <Button layoutX="91.0" layoutY="170.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="420.0" text="See grades and attendence record">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="461.0" layoutY="158.0" mnemonicParsing="false" text="See attendance record">
+            <Button layoutX="560.0" layoutY="170.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="454.0" text="See course materials">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="811.0" layoutY="158.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="270.0" text="See course materials">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
-            <Button layoutX="1157.0" layoutY="158.0" mnemonicParsing="false" onAction="#addSolution" prefHeight="51.0" prefWidth="270.0" text="Upload homework">
+            <Button layoutX="1058.0" layoutY="170.0" mnemonicParsing="false" onAction="#addSolution" prefHeight="51.0" prefWidth="398.0" text="Upload homework">
                <font>
                   <Font size="24.0" />
                </font>
