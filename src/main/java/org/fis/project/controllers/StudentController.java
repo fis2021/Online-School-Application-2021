@@ -1,8 +1,16 @@
 package org.fis.project.controllers;
 
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.util.Pair;
 import org.fis.project.Main;
 import org.fis.project.model.StudentTable;
@@ -43,5 +51,41 @@ public class StudentController {
         for(Pair<String,String> subjects:subejcts_teachers){
             tableView.getItems().add(new StudentTable(subjects.getKey(),subjects.getValue()));
         }
+    }
+
+    private static FXMLLoader path;
+    public void addSolution() {
+        try {
+            Stage stage3 = new Stage();
+            stage3.setTitle("Homework add");
+
+            Scene scene3 = new Scene(loadFXML("teacher4"), 600, 400);
+
+            stage3.getIcons().add(new Image(this.getClass().getResourceAsStream("/9.png")));
+
+            stage3.setScene(scene3);
+            stage3.setResizable(false);
+            stage3.setMaximized(false);
+            stage3.centerOnScreen();
+            stage3.initModality(Modality.WINDOW_MODAL);
+
+            TeacherAddHomeworkController controller=path.getController();
+            ObservableList<StudentTable>subject;
+            ObservableList<StudentTable>teacher;
+            subject=tableView.getSelectionModel().getSelectedItems();
+            teacher=tableView.getSelectionModel().getSelectedItems();
+            String requirements=CatalogService.searchHomeworkRequirements(teacher.get(0).getStudentTeachers(),subject.get(0).getStudentSubjects());
+            String solution=CatalogService.searchHomeworkSolution(teacher.get(0).getStudentTeachers(),studentUsername,subject.get(0).getStudentSubjects());
+            controller.populateDataFromStudent(teacher.get(0).getStudentTeachers(),studentUsername,subject.get(0).getStudentSubjects(),requirements,solution);
+            stage3.show();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    private static Parent loadFXML(String fxml) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getClassLoader().getResource(fxml + ".fxml"));
+        path=fxmlLoader;
+        return fxmlLoader.load();
     }
 }

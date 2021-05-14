@@ -148,8 +148,11 @@ public class TeacherSubjectsController {
             stage3.initModality(Modality.WINDOW_MODAL);
 
             TeacherAddHomeworkController controller=path.getController();
+            ObservableList<SubjectInformation> student;
+            student=tableView.getSelectionModel().getSelectedItems();
             String requirements=CatalogService.searchHomeworkRequirements(teacherUsername,subjectName);
-            controller.populateDataFromTeacher(teacherUsername,subjectName,requirements);
+            String solution=CatalogService.searchHomeworkSolution(teacherUsername,student.get(0).getStudentName(),subjectName);
+            controller.populateDataFromTeacher(teacherUsername,subjectName,requirements,solution);
 
             stage3.show();
 
