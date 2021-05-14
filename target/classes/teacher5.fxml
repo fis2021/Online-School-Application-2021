@@ -62,11 +62,6 @@
                         <Image url="@9.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="176.0" layoutY="383.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="253.0" text="See homework uploads">
-                    <font>
-                        <Font name="Arial Bold" size="18.0" />
-                    </font>
-                </Button>
                 <Label layoutX="290.0" layoutY="70.0" prefHeight="30.0" prefWidth="140.0" text="...">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
@@ -82,17 +77,17 @@
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="290.0" layoutY="217.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                <Label fx:id="finalgrade" layoutX="290.0" layoutY="217.0" prefHeight="30.0" prefWidth="140.0" text="...">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="290.0" layoutY="256.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                <Label fx:id="presences" layoutX="290.0" layoutY="256.0" prefHeight="30.0" prefWidth="140.0" text="...">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="290.0" layoutY="295.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                <Label fx:id="absences" layoutX="290.0" layoutY="295.0" prefHeight="30.0" prefWidth="140.0" text="...">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
@@ -110,32 +105,32 @@
                         <Font size="34.0" />
                     </font>
                 </Label>
-                <Button layoutX="126.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add grade">
+                <Button layoutX="126.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddGrade" prefHeight="51.0" prefWidth="329.0" text="Add grade">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="595.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add presence">
+                <Button layoutX="595.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddPresence" prefHeight="51.0" prefWidth="329.0" text="Add presence">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="1093.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add absence">
+                <Button layoutX="1093.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddAbsence" prefHeight="51.0" prefWidth="329.0" text="Add absence">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <TextField alignment="CENTER" layoutX="126.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" text="Type grade to add...">
+                <TextField fx:id="agrade" alignment="CENTER" layoutX="126.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" promptText="Type grade to add...">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <TextField alignment="CENTER" layoutX="594.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" text="Type number of presences to add...">
+                <TextField fx:id="apresence" alignment="CENTER" layoutX="594.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" promptText="Type number of presences to add...">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <TextField alignment="CENTER" layoutX="1092.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" text="Type number of absences to add...">
+                <TextField fx:id="aabsence" alignment="CENTER" layoutX="1092.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" promptText="Type number of absences to add...">
                     <font>
                         <Font size="14.0" />
                     </font>
