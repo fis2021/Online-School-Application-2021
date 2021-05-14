@@ -50,6 +50,12 @@ public class TeacherSubjectsController {
     @FXML
     public void switchToStudentView() throws Exception {
         Main.setRoot("teacher5");
+
+        TeacherStudentViewController controller=Main.getPath().getController();
+        ObservableList<SubjectInformation> student;
+        student=tableView.getSelectionModel().getSelectedItems();
+        controller.setHelloMessage(student.get(0).getStudentName());
+        controller.populateDataFromTeacherSubjects(teacherUsername,student.get(0).getStudentName(),subjectName);
     }
 
     private static String username;
