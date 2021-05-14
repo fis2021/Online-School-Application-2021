@@ -56,6 +56,16 @@ public class TeacherSubjectsController {
         student=tableView.getSelectionModel().getSelectedItems();
         controller.setHelloMessage(student.get(0).getStudentName());
         controller.populateDataFromTeacherSubjects(teacherUsername,student.get(0).getStudentName(),subjectName);
+
+        String grade=CatalogService.searchGrade(teacherUsername, student.get(0).getStudentName(),subjectName);
+        controller.setGrade(grade);
+
+        String absence=CatalogService.searchAbsence(teacherUsername, student.get(0).getStudentName(),subjectName);
+        controller.setAbsence(absence);
+
+        String presence=CatalogService.searchPresence(teacherUsername, student.get(0).getStudentName(),subjectName);
+        controller.setPresence(presence);
+
     }
 
     private static String username;

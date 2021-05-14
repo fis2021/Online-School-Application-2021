@@ -118,6 +118,16 @@ public class CatalogService {
         return "";
     }
 
+
+    public static void addGrade(String teacherUsername, String studentUsername, String subjectName, String grade) {
+        for(Catalog catalog:catalogRepository.find()) {
+            if (catalog.getStudentId() != null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
+                catalog.setGrade(grade);
+
+                catalogRepository.update(catalog);
+            }
+        }
+    }
     public static void addCourseMaterials(String teacherUsername, String subjectName, String materials) {
         for(Catalog catalog:catalogRepository.find()) {
             if(catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId()==null) {
@@ -126,6 +136,53 @@ public class CatalogService {
                 break;
             }
         }
+    }
+
+    public static String searchGrade(String teacherUsername, String studentUsername , String subjectName) {
+        for (Catalog catalog : catalogRepository.find()) {
+            if (catalog.getStudentId() != null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
+                return catalog.getGrade();
+            }
+        }
+        return "";
+    }
+
+    public static void addAbsence(String teacherUsername, String studentUsername, String subjectName, String absence) {
+        for(Catalog catalog:catalogRepository.find()) {
+            if(catalog.getStudentId()!=null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
+                catalog.setAbsence(absence);
+                catalogRepository.update(catalog);
+                break;
+            }
+        }
+    }
+
+    public static String searchAbsence(String teacherUsername, String studentUsername , String subjectName) {
+        for (Catalog catalog : catalogRepository.find()) {
+            if (catalog.getStudentId() != null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
+                return catalog.getAbsence();
+            }
+        }
+        return "";
+    }
+
+    public static void addPresence(String teacherUsername, String studentUsername, String subjectName, String presence) {
+        for(Catalog catalog:catalogRepository.find()) {
+            if(catalog.getStudentId()!=null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
+                catalog.setPresence(presence);
+                catalogRepository.update(catalog);
+                break;
+            }
+        }
+    }
+
+    public static String searchPresence(String teacherUsername, String studentUsername , String subjectName) {
+        for (Catalog catalog : catalogRepository.find()) {
+            if (catalog.getStudentId() != null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
+                return catalog.getPresence();
+            }
+        }
+            return "";
     }
 
     public static String searchCourseMaterials(String teacherUsername, String subjectName) {
