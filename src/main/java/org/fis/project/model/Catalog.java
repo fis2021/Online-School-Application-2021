@@ -14,6 +14,9 @@ public class Catalog {
     private String studentId;
     private String subjectId;
     private String homeworkRequirements;
+    private String grade;
+    private String presence;
+    private String absence;
 
     public Catalog(String teacherId) {
         nrId="ID"+nr;
@@ -62,6 +65,30 @@ public class Catalog {
 
     public void setHomeworkRequirements(String homeworkRequirements) {
         this.homeworkRequirements = homeworkRequirements;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
+
+    public String getPresence() {
+        return presence;
+    }
+
+    public void setPresence(String presence) {
+        this.presence = presence;
+    }
+
+    public String getAbsence() {
+        return absence;
+    }
+
+    public void setAbsence(String absence) {
+        this.absence = absence;
     }
 
 }

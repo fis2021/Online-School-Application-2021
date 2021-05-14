@@ -56,6 +56,10 @@ public class TeacherSubjectsController {
         student=tableView.getSelectionModel().getSelectedItems();
         controller.setHelloMessage(student.get(0).getStudentName());
         controller.populateDataFromTeacherSubjects(teacherUsername,student.get(0).getStudentName(),subjectName);
+
+        String grade=CatalogService.searchGrade(teacherUsername, student.get(0).getStudentName(),subjectName);
+        controller.setGrade(grade);
+
     }
 
     private static String username;

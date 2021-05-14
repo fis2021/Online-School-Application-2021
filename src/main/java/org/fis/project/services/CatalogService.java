@@ -117,4 +117,23 @@ public class CatalogService {
         }
         return "";
     }
+
+    public static void addGrade(String teacherUsername, String studentUsername, String subjectName, String grade) {
+        for(Catalog catalog:catalogRepository.find()) {
+            if(catalog.getStudentId()!=null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
+                catalog.setGrade(grade);
+                catalogRepository.update(catalog);
+                break;
+            }
+        }
+    }
+
+    public static String searchGrade(String teacherUsername, String studentUsername , String subjectName) {
+        for (Catalog catalog : catalogRepository.find()) {
+            if (catalog.getStudentId() != null && catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId().equals(studentUsername)) {
+                return catalog.getGrade();
+            }
+        }
+        return "";
+    }
 }
