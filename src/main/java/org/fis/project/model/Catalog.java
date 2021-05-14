@@ -13,6 +13,7 @@ public class Catalog {
     private String teacherId;
     private String studentId;
     private String subjectId;
+    private String homeworkRequirements;
 
     public Catalog(String teacherId) {
         nrId="ID"+nr;
@@ -53,6 +54,14 @@ public class Catalog {
 
     public void setSubjectId(String subjectId) {
         this.subjectId = subjectId;
+    }
+
+    public String getHomeworkRequirements() {
+        return homeworkRequirements;
+    }
+
+    public void setHomeworkRequirements(String homeworkRequirements) {
+        this.homeworkRequirements = homeworkRequirements;
     }
 
 }

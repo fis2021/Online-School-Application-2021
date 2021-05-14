@@ -137,11 +137,17 @@ public class TeacherSubjectsController {
             stage3.centerOnScreen();
             stage3.initModality(Modality.WINDOW_MODAL);
 
+            TeacherAddHomeworkController controller=path.getController();
+            String requirements=CatalogService.searchHomeworkRequirements(teacherUsername,subjectName);
+            controller.populateDataFromTeacher(teacherUsername,subjectName,requirements);
+
             stage3.show();
+
         }
         catch (Exception e) {
             e.printStackTrace();
         }
+
 
     }
 

@@ -38,7 +38,7 @@ public class CatalogService {
 
     public static void test(){
         for(Catalog catalog:catalogRepository.find()) {
-            System.out.println(catalog.getStudentId());
+            System.out.println(catalog.getTeacherId()+" "+catalog.getSubjectId() + " "+ catalog.getStudentId()+" "+catalog.getHomeworkRequirements());
         }
     }
 
@@ -99,4 +99,22 @@ public class CatalogService {
         }
     }
 
+    public static void addHomework(String teacherUsername, String subjectName, String requirements) {
+        for(Catalog catalog:catalogRepository.find()) {
+            if(catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId()==null) {
+                catalog.setHomeworkRequirements(requirements);
+                catalogRepository.update(catalog);
+                break;
+            }
+        }
+    }
+
+    public static String searchHomeworkRequirements(String teacherUsername, String subjectName) {
+        for (Catalog catalog : catalogRepository.find()) {
+            if (catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName)) {
+                return catalog.getHomeworkRequirements();
+            }
+        }
+        return "";
+    }
 }
