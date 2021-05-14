@@ -52,7 +52,7 @@
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="811.0" layoutY="158.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="270.0" text="See course materials">
+            <Button layoutX="811.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleCourseMaterial" prefHeight="51.0" prefWidth="270.0" text="See course materials">
                <font>
                   <Font size="24.0" />
                </font>
