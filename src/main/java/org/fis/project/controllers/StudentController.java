@@ -39,6 +39,11 @@ public class StudentController {
         Main.setRoot("login");
     }
 
+    @FXML
+    public void switchToInformationView() throws Exception {
+        Main.setRoot("studentInformationView");
+    }
+
     private String studentUsername;
     public void populateDataFromLogInStudent(String username){
         studentUsername=username;
