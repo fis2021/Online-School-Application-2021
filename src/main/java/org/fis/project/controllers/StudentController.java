@@ -88,4 +88,34 @@ public class StudentController {
         path=fxmlLoader;
         return fxmlLoader.load();
     }
+
+    public void handleCourseMaterial(){
+
+        try {
+            Stage stage2 = new Stage();
+            stage2.setTitle("Course Material");
+
+            Scene scene2 = new Scene(loadFXML("studentCourseMaterial"), 600, 400);
+
+            stage2.getIcons().add(new Image(this.getClass().getResourceAsStream("/9.png")));
+
+            stage2.setScene(scene2);
+            stage2.setResizable(false);
+            stage2.setMaximized(false);
+            stage2.centerOnScreen();
+            stage2.initModality(Modality.WINDOW_MODAL);
+
+            StudentCheckMaterialsController controller=path.getController();
+            ObservableList<StudentTable>subject;
+            ObservableList<StudentTable>teacher;
+            subject=tableView.getSelectionModel().getSelectedItems();
+            teacher=tableView.getSelectionModel().getSelectedItems();
+            String materials=CatalogService.searchCourseMaterials(teacher.get(0).getStudentTeachers(),subject.get(0).getStudentSubjects());
+            controller.populateDataFromStudent(teacher.get(0).getStudentTeachers(),subject.get(0).getStudentSubjects(),materials);
+            stage2.show();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
