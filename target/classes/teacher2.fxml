@@ -21,9 +21,7 @@
                     </font></Button>
                 <TableView fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                     <columns>
-                        <TableColumn fx:id="students" prefWidth="500.0" resizable="false" text="Students" />
-                  <TableColumn fx:id="courseMaterials" prefWidth="500.0" resizable="false" text="Course materials" />
-                  <TableColumn fx:id="homework" prefWidth="535.2000122070312" resizable="false" text="Homework" />
+                        <TableColumn fx:id="students" prefWidth="1530.0" resizable="false" text="Students" />
                     </columns>
                 </TableView>
                 <Label fx:id="helloMessage" layoutX="713.0" layoutY="20.0" prefHeight="18.0" prefWidth="186.0" text="Subject">
@@ -54,7 +52,7 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button onAction="#handleRemoveStudent" layoutX="148.0" layoutY="214.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="330.0" text="Delete student">
+                <Button layoutX="148.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleRemoveStudent" prefHeight="51.0" prefWidth="330.0" text="Delete student">
                     <font>
                         <Font size="24.0" />
                     </font>
