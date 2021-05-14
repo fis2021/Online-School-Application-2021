@@ -24,7 +24,7 @@
                         <TableColumn fx:id="colSubject" prefWidth="1534.3998230099678" resizable="false" text="Subjects" />
                     </columns>
                 </TableView>
-            <Label fx:id="helloMessage" layoutX="483.0" layoutY="20.0" prefHeight="30.0" prefWidth="555.0" text="Hello teacher!">
+            <Label fx:id="helloMessage" alignment="CENTER" layoutX="483.0" layoutY="20.0" prefHeight="30.0" prefWidth="555.0" text="Hello teacher!" textAlignment="CENTER">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font>
