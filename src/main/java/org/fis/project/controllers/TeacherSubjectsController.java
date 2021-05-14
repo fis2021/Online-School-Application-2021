@@ -60,6 +60,12 @@ public class TeacherSubjectsController {
         String grade=CatalogService.searchGrade(teacherUsername, student.get(0).getStudentName(),subjectName);
         controller.setGrade(grade);
 
+        String absence=CatalogService.searchAbsence(teacherUsername, student.get(0).getStudentName(),subjectName);
+        controller.setAbsence(absence);
+
+        String presence=CatalogService.searchPresence(teacherUsername, student.get(0).getStudentName(),subjectName);
+        controller.setPresence(presence);
+
     }
 
     private static String username;

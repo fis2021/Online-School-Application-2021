@@ -14,7 +14,15 @@ public class TeacherStudentViewController {
     @FXML
     private TextField agrade;
     @FXML
+    private TextField aabsence;
+    @FXML
+    private TextField apresence;
+    @FXML
     private Label finalgrade;
+    @FXML
+    private Label absences;
+    @FXML
+    private Label presences;
 
     @FXML
     public void setHelloMessage(String message) {
@@ -50,9 +58,29 @@ public class TeacherStudentViewController {
         finalgrade.setText(agrade.getText());
     }
 
+    public void handleAddAbsence() {
+        CatalogService.addAbsence(teacherUsername, studentUsername ,subjectName, aabsence.getText());
+        absences.setText(aabsence.getText());
+    }
+
+    public void handleAddPresence() {
+        CatalogService.addPresence(teacherUsername, studentUsername ,subjectName, apresence.getText());
+        presences.setText(apresence.getText());
+    }
+
     @FXML
     public void setGrade(String grade) {
         finalgrade.setText(grade);
+    }
+
+    @FXML
+    public void setAbsence(String absence) {
+        absences.setText(absence);
+    }
+
+    @FXML
+    public void setPresence(String presence) {
+        presences.setText(presence);
     }
 
 }

@@ -62,11 +62,6 @@
                         <Image url="@9.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="176.0" layoutY="383.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="253.0" text="See homework uploads">
-                    <font>
-                        <Font name="Arial Bold" size="18.0" />
-                    </font>
-                </Button>
                 <Label layoutX="290.0" layoutY="70.0" prefHeight="30.0" prefWidth="140.0" text="...">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
@@ -87,12 +82,12 @@
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="290.0" layoutY="256.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                <Label fx:id="presences" layoutX="290.0" layoutY="256.0" prefHeight="30.0" prefWidth="140.0" text="...">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="290.0" layoutY="295.0" prefHeight="30.0" prefWidth="140.0" text="...">
+                <Label fx:id="absences" layoutX="290.0" layoutY="295.0" prefHeight="30.0" prefWidth="140.0" text="...">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>
@@ -115,12 +110,12 @@
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="595.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add presence">
+                <Button layoutX="595.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddPresence" prefHeight="51.0" prefWidth="329.0" text="Add presence">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="1093.0" layoutY="203.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="329.0" text="Add absence">
+                <Button layoutX="1093.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddAbsence" prefHeight="51.0" prefWidth="329.0" text="Add absence">
                     <font>
                         <Font size="24.0" />
                     </font>
