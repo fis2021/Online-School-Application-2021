@@ -117,4 +117,23 @@ public class CatalogService {
         }
         return "";
     }
+
+    public static void addCourseMaterials(String teacherUsername, String subjectName, String materials) {
+        for(Catalog catalog:catalogRepository.find()) {
+            if(catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName) && catalog.getStudentId()==null) {
+                catalog.setCourseMaterials(materials);
+                catalogRepository.update(catalog);
+                break;
+            }
+        }
+    }
+
+    public static String searchCourseMaterials(String teacherUsername, String subjectName) {
+        for (Catalog catalog : catalogRepository.find()) {
+            if (catalog.getTeacherId().equals(teacherUsername) && catalog.getSubjectId().equals(subjectName)) {
+                return catalog.getCourseMaterials();
+            }
+        }
+        return "";
+    }
 }
