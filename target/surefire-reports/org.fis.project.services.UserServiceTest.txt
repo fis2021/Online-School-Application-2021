@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.fis.project.services.UserServiceTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.fis.project.services.UserServiceTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.375 s - in org.fis.project.services.UserServiceTest
