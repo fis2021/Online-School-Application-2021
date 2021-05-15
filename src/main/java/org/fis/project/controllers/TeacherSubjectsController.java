@@ -16,6 +16,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.fis.project.Main;
+import org.fis.project.exceptions.AddStudentNotTyped;
+import org.fis.project.exceptions.StudentAlreadyAdded;
+import org.fis.project.exceptions.StudentNotSavedInDB;
 import org.fis.project.model.SubjectInformation;
 import org.fis.project.model.TeacherSubjects;
 import org.fis.project.services.CatalogService;
@@ -28,6 +31,8 @@ import java.util.logging.Logger;
 
 public class TeacherSubjectsController {
 
+    @FXML
+    private Label exceptionMessage;
     @FXML
     private TextField addStudent;
     @FXML
@@ -49,22 +54,28 @@ public class TeacherSubjectsController {
 
     @FXML
     public void switchToStudentView() throws Exception {
-        Main.setRoot("teacher5");
+        try {
+                ObservableList<SubjectInformation> student;
+                student=tableView.getSelectionModel().getSelectedItems();
+                if(student.get(0).getStudentName()!=null) {
+                    Main.setRoot("teacher5");
 
-        TeacherStudentViewController controller=Main.getPath().getController();
-        ObservableList<SubjectInformation> student;
-        student=tableView.getSelectionModel().getSelectedItems();
-        controller.setHelloMessage(student.get(0).getStudentName());
-        controller.populateDataFromTeacherSubjects(teacherUsername,student.get(0).getStudentName(),subjectName);
+                    TeacherStudentViewController controller = Main.getPath().getController();
+                    controller.setHelloMessage(student.get(0).getStudentName());
+                    controller.populateDataFromTeacherSubjects(teacherUsername, student.get(0).getStudentName(), subjectName);
 
-        String grade=CatalogService.searchGrade(teacherUsername, student.get(0).getStudentName(),subjectName);
-        controller.setGrade(grade);
+                    String grade = CatalogService.searchGrade(teacherUsername, student.get(0).getStudentName(), subjectName);
+                    controller.setGrade(grade);
 
-        String absence=CatalogService.searchAbsence(teacherUsername, student.get(0).getStudentName(),subjectName);
-        controller.setAbsence(absence);
+                    String absence = CatalogService.searchAbsence(teacherUsername, student.get(0).getStudentName(), subjectName);
+                    controller.setAbsence(absence);
 
-        String presence=CatalogService.searchPresence(teacherUsername, student.get(0).getStudentName(),subjectName);
-        controller.setPresence(presence);
+                    String presence = CatalogService.searchPresence(teacherUsername, student.get(0).getStudentName(), subjectName);
+                    controller.setPresence(presence);
+                }
+        }catch (Exception e){
+            exceptionMessage.setText("There is no student selected");
+        }
 
     }
 
@@ -86,8 +97,24 @@ public class TeacherSubjectsController {
 
 
     public void handleAddStudents() {
-        CatalogService.addTeacher_Student_Subject(teacherUsername,addStudent.getText(),subjectName);
-        tableView.getItems().add(new SubjectInformation(addStudent.getText()));
+
+        try {
+            CatalogService.addTeacher_Student_Subject(teacherUsername, addStudent.getText(), subjectName);
+            tableView.getItems().add(new SubjectInformation(addStudent.getText()));
+
+            exceptionMessage.setText("Student " + addStudent.getText() + " added to class!");
+        } catch (AddStudentNotTyped e) {
+
+            exceptionMessage.setText("Please type username of student you want to add!");
+
+        } catch (StudentAlreadyAdded e) {
+
+            exceptionMessage.setText("Student " + addStudent.getText() + " already added to class!");
+        } catch (StudentNotSavedInDB e) {
+            exceptionMessage.setText("Student " + addStudent.getText() + " has no account yet!");
+        }
+
+
     }
 
     private String teacherUsername;
@@ -131,7 +158,7 @@ public class TeacherSubjectsController {
             TeacherAddMaterialsController controller=path.getController();
             String materials=CatalogService.searchCourseMaterials(teacherUsername,subjectName);
             controller.populateDataFromTeacher(teacherUsername,subjectName,materials);
-
+            exceptionMessage.setText("Teacher Subject Dashboard");
             stage2.show();
         }
         catch (Exception e) {
@@ -163,12 +190,10 @@ public class TeacherSubjectsController {
             String requirements=CatalogService.searchHomeworkRequirements(teacherUsername,subjectName);
             String solution=CatalogService.searchHomeworkSolution(teacherUsername,student.get(0).getStudentName(),subjectName);
             controller.populateDataFromTeacher(teacherUsername,subjectName,requirements,solution);
-
             stage3.show();
 
-        }
-        catch (Exception e) {
-            e.printStackTrace();
+        }catch (Exception e){
+            exceptionMessage.setText("Please select a table field and try");
         }
 
 
@@ -186,12 +211,17 @@ public class TeacherSubjectsController {
 
 
     public void handleRemoveStudent() {
-        ObservableList<SubjectInformation> allStudents,singleStudent;
-        singleStudent=tableView.getSelectionModel().getSelectedItems();
+        try {
+            ObservableList<SubjectInformation> allStudents, singleStudent;
+            singleStudent = tableView.getSelectionModel().getSelectedItems();
 
-        CatalogService.clearStudent(teacherUsername,singleStudent.get(0).getStudentName(),subjectName);
+            CatalogService.clearStudent(teacherUsername, singleStudent.get(0).getStudentName(), subjectName);
 
-        allStudents= tableView.getItems();
-        singleStudent.forEach(allStudents::remove);
+            allStudents = tableView.getItems();
+            singleStudent.forEach(allStudents::remove);
+            exceptionMessage.setText("Teacher Subject Dashboard");
+        }catch (Exception e){
+            exceptionMessage.setText("There is no student selected");
+        }
     }
 }

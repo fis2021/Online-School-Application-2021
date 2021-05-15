@@ -24,6 +24,8 @@ public class StudentController {
     @FXML
     private Label helloMessage;
     @FXML
+    private Label warningMessage;
+    @FXML
     private TableView<StudentTable> tableView;
     @FXML
     private TableColumn<StudentTable,String> subject;
@@ -41,17 +43,26 @@ public class StudentController {
 
     @FXML
     public void switchToInformationView() throws Exception {
-        Main.setRoot("studentInformationView");
-        StudentInformationViewController controller=Main.getPath().getController();
-        ObservableList<StudentTable>subject;
-        ObservableList<StudentTable>teacher;
-        subject=tableView.getSelectionModel().getSelectedItems();
-        teacher=tableView.getSelectionModel().getSelectedItems();
-        String grade=CatalogService.searchGrade(teacher.get(0).getStudentTeachers(),studentUsername,subject.get(0).getStudentSubjects());
-        String presence=CatalogService.searchPresence(teacher.get(0).getStudentTeachers(),studentUsername,subject.get(0).getStudentSubjects());
-        String absence=CatalogService.searchAbsence(teacher.get(0).getStudentTeachers(),studentUsername,subject.get(0).getStudentSubjects());
-        controller.setHelloMessage();
-        controller.populateDataToStudentInformationView(subject.get(0).getStudentSubjects(),grade,presence,absence);
+        try {
+            ObservableList<StudentTable> subject;
+            ObservableList<StudentTable> teacher;
+            subject = tableView.getSelectionModel().getSelectedItems();
+            teacher = tableView.getSelectionModel().getSelectedItems();
+
+            if(teacher.get(0).getStudentTeachers()!=null) {
+                Main.setRoot("studentInformationView");
+                StudentInformationViewController controller = Main.getPath().getController();
+
+
+                String grade = CatalogService.searchGrade(teacher.get(0).getStudentTeachers(), studentUsername, subject.get(0).getStudentSubjects());
+                String presence = CatalogService.searchPresence(teacher.get(0).getStudentTeachers(), studentUsername, subject.get(0).getStudentSubjects());
+                String absence = CatalogService.searchAbsence(teacher.get(0).getStudentTeachers(), studentUsername, subject.get(0).getStudentSubjects());
+                controller.setHelloMessage();
+                controller.populateDataToStudentInformationView(subject.get(0).getStudentSubjects(), grade, presence, absence);
+            }
+        } catch (Exception e) {
+            warningMessage.setText("Please select subject first!");
+        }
     }
 
     private String studentUsername;
@@ -95,7 +106,7 @@ public class StudentController {
             stage3.show();
         }
         catch (Exception e) {
-            e.printStackTrace();
+            warningMessage.setText("Please select subject first!");
         }
     }
     private static Parent loadFXML(String fxml) throws Exception {
@@ -130,7 +141,8 @@ public class StudentController {
             stage2.show();
         }
         catch (Exception e) {
-            e.printStackTrace();
+            warningMessage.setText("Please select subject first!");
+
         }
     }
 }
