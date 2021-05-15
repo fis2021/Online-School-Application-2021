@@ -5,9 +5,9 @@ public class UsernameAlreadyExistsException extends Exception {
     private String username;
 
     public UsernameAlreadyExistsException(String username) {
-<span class="nc" id="L8">        super(String.format(&quot;An account with the username %s already exists!&quot;, username));</span>
-<span class="nc" id="L9">        this.username = username;</span>
-<span class="nc" id="L10">    }</span>
+<span class="fc" id="L8">        super(String.format(&quot;An account with the username %s already exists!&quot;, username));</span>
+<span class="fc" id="L9">        this.username = username;</span>
+<span class="fc" id="L10">    }</span>
 
     public String getUsername() {
 <span class="nc" id="L13">        return username;</span>

@@ -24,47 +24,41 @@ import java.nio.file.Path;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-<span class="nc" id="L27">        initDirectory();</span>
-<span class="nc" id="L28">        UserService.initDatabase();</span>
-<span class="nc" id="L29">        CatalogService.initDatabase();</span>
+<span class="nc" id="L27">        UserService.initDatabase();</span>
+<span class="nc" id="L28">        CatalogService.initDatabase();</span>
 
-<span class="nc" id="L31">        primaryStage.setTitle(&quot;Online School Application&quot;);</span>
-<span class="nc" id="L32">        scene=new Scene(loadFXML(&quot;login&quot;), 300, 275);</span>
-<span class="nc" id="L33">        primaryStage.setScene(scene);</span>
+<span class="nc" id="L30">        primaryStage.setTitle(&quot;Online School Application&quot;);</span>
+<span class="nc" id="L31">        scene=new Scene(loadFXML(&quot;login&quot;), 300, 275);</span>
+<span class="nc" id="L32">        primaryStage.setScene(scene);</span>
 
-<span class="nc" id="L35">        primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream(&quot;/9.png&quot;)));</span>
+<span class="nc" id="L34">        primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream(&quot;/9.png&quot;)));</span>
 
-<span class="nc" id="L37">        primaryStage.setWidth(1550);</span>
-<span class="nc" id="L38">        primaryStage.setHeight(835);</span>
+<span class="nc" id="L36">        primaryStage.setWidth(1550);</span>
+<span class="nc" id="L37">        primaryStage.setHeight(835);</span>
 
-<span class="nc" id="L40">        primaryStage.centerOnScreen();</span>
-<span class="nc" id="L41">        primaryStage.setMaximized(false);</span>
-<span class="nc" id="L42">        primaryStage.setResizable(false);</span>
-<span class="nc" id="L43">        primaryStage.show();</span>
-<span class="nc" id="L44">    }</span>
+<span class="nc" id="L39">        primaryStage.centerOnScreen();</span>
+<span class="nc" id="L40">        primaryStage.setMaximized(false);</span>
+<span class="nc" id="L41">        primaryStage.setResizable(false);</span>
+<span class="nc" id="L42">        primaryStage.show();</span>
+<span class="nc" id="L43">    }</span>
 
-    private void initDirectory() {
-<span class="nc" id="L47">        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;</span>
-<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (!Files.exists(applicationHomePath))</span>
-<span class="nc" id="L49">            applicationHomePath.toFile().mkdirs();</span>
-<span class="nc" id="L50">    }</span>
 
     public static void setRoot(String fxml) throws Exception {
-<span class="nc" id="L53">        scene.setRoot(loadFXML(fxml));</span>
-<span class="nc" id="L54">    }</span>
+<span class="nc" id="L47">        scene.setRoot(loadFXML(fxml));</span>
+<span class="nc" id="L48">    }</span>
 
     private static Parent loadFXML(String fxml) throws Exception {
-<span class="nc" id="L57">        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getClassLoader().getResource(fxml + &quot;.fxml&quot;));</span>
-<span class="nc" id="L58">        path=fxmlLoader;</span>
-<span class="nc" id="L59">        return fxmlLoader.load();</span>
+<span class="nc" id="L51">        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getClassLoader().getResource(fxml + &quot;.fxml&quot;));</span>
+<span class="nc" id="L52">        path=fxmlLoader;</span>
+<span class="nc" id="L53">        return fxmlLoader.load();</span>
     }
 
     public static FXMLLoader getPath() {
-<span class="nc" id="L63">        return path;</span>
+<span class="nc" id="L57">        return path;</span>
     }
 
     public static void main(String[] args) {
-<span class="nc" id="L67">        launch(args);</span>
-<span class="nc" id="L68">    }</span>
+<span class="nc" id="L61">        launch(args);</span>
+<span class="nc" id="L62">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

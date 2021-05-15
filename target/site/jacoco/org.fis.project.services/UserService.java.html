@@ -10,118 +10,131 @@ import org.fis.project.model.User;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static org.fis.project.services.FileSystemService.getPathToFile;
 
-<span class="nc" id="L17">public class UserService {</span>
+<span class="nc" id="L18">public class UserService {</span>
 
     private static ObjectRepository&lt;User&gt; userRepository;
 
     public static void initDatabase() {
-<span class="nc" id="L22">        Nitrite database = Nitrite.builder()</span>
-<span class="nc" id="L23">                .filePath(getPathToFile(&quot;Registration.db&quot;).toFile())</span>
-<span class="nc" id="L24">                .openOrCreate(&quot;test&quot;, &quot;test&quot;);</span>
+<span class="fc" id="L23">        FileSystemService.initDirectory();</span>
+<span class="fc" id="L24">        Nitrite database = Nitrite.builder()</span>
+<span class="fc" id="L25">                .filePath(getPathToFile(&quot;Registration.db&quot;).toFile())</span>
+<span class="fc" id="L26">                .openOrCreate(&quot;test&quot;, &quot;test&quot;);</span>
 
-<span class="nc" id="L26">        userRepository = database.getRepository(User.class);</span>
-<span class="nc" id="L27">    }</span>
+<span class="fc" id="L28">        userRepository = database.getRepository(User.class);</span>
+<span class="fc" id="L29">    }</span>
 
     public static void addUser(String username, String password, String confirmpassword, String role, String firstname, String lastname) throws UsernameAlreadyExistsException, CompleteAllFieldsException, ConfirmPasswordException, UserNameNotLongEnough, PasswordNotLongEnough {
-<span class="nc" id="L30">        checkCredentialsAreNotEmpty(username , password , confirmpassword , role, firstname, lastname);</span>
-<span class="nc" id="L31">        checkUserNameLength(username);</span>
-<span class="nc" id="L32">        checkUserDoesNotAlreadyExist(username);</span>
-<span class="nc" id="L33">        checkPasswordLength(password, confirmpassword);</span>
-<span class="nc" id="L34">        checkConfirmPassword(password, confirmpassword);</span>
-<span class="nc" id="L35">        userRepository.insert(new User(username, encodePassword(username, password), encodePassword(username, confirmpassword) , role, firstname, lastname));</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L32">        checkCredentialsAreNotEmpty(username , password , confirmpassword , role, firstname, lastname);</span>
+<span class="fc" id="L33">        checkUserNameLength(username);</span>
+<span class="fc" id="L34">        checkUserDoesNotAlreadyExist(username);</span>
+<span class="fc" id="L35">        checkPasswordLength(password, confirmpassword);</span>
+<span class="fc" id="L36">        checkConfirmPassword(password, confirmpassword);</span>
+<span class="fc" id="L37">        userRepository.insert(new User(username, encodePassword(username, password), encodePassword(username, confirmpassword) , role, firstname, lastname));</span>
+<span class="fc" id="L38">    }</span>
 
     public static String checkCkredentials(String username, String password) throws CompleteLoginDataException {
 
-<span class="nc" id="L40">        checkLoginDataNotEmpty(username, password);</span>
+<span class="nc" id="L42">        checkLoginDataNotEmpty(username, password);</span>
 
-<span class="nc bnc" id="L42" title="All 2 branches missed.">        for (User user : userRepository.find()) {</span>
-<span class="nc bnc" id="L43" title="All 2 branches missed.">            if (Objects.equals(username, user.getUsername()) &amp;&amp;</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">                    Objects.equals(encodePassword(username , password),user.getPassword()))</span>
-<span class="nc" id="L45">                return user.getRole();</span>
-<span class="nc" id="L46">        }</span>
-<span class="nc" id="L47">        return new String(&quot;Nu exista&quot;);</span>
+<span class="nc bnc" id="L44" title="All 2 branches missed.">        for (User user : userRepository.find()) {</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">            if (Objects.equals(username, user.getUsername()) &amp;&amp;</span>
+<span class="nc bnc" id="L46" title="All 2 branches missed.">                    Objects.equals(encodePassword(username , password),user.getPassword()))</span>
+<span class="nc" id="L47">                return user.getRole();</span>
+<span class="nc" id="L48">        }</span>
+<span class="nc" id="L49">        return new String(&quot;Nu exista&quot;);</span>
     }
 
 
     private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
-<span class="nc bnc" id="L52" title="All 2 branches missed.">        for (User user : userRepository.find()) {</span>
-<span class="nc bnc" id="L53" title="All 2 branches missed.">            if (Objects.equals(username, user.getUsername()))</span>
-<span class="nc" id="L54">                throw new UsernameAlreadyExistsException(username);</span>
-<span class="nc" id="L55">        }</span>
-<span class="nc" id="L56">    }</span>
+<span class="fc bfc" id="L54" title="All 2 branches covered.">        for (User user : userRepository.find()) {</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">            if (Objects.equals(username, user.getUsername()))</span>
+<span class="fc" id="L56">                throw new UsernameAlreadyExistsException(username);</span>
+<span class="fc" id="L57">        }</span>
+<span class="fc" id="L58">    }</span>
 
     private static void checkCredentialsAreNotEmpty(String username , String password , String confirmpassword , String role, String firstname, String lastname) throws CompleteAllFieldsException {
-<span class="nc bnc" id="L59" title="All 12 branches missed.">        if(username.equals(new String(&quot;&quot;)) || password.equals(new String(&quot;&quot;)) || confirmpassword.equals(new String(&quot;&quot;)) || firstname.equals(new String(&quot;&quot;)) || lastname.equals(new String(&quot;&quot;)) || role==null)</span>
-<span class="nc" id="L60">            throw new CompleteAllFieldsException();</span>
-<span class="nc" id="L61">    }</span>
+<span class="pc bpc" id="L61" title="5 of 12 branches missed.">        if(username.equals(new String(&quot;&quot;)) || password.equals(new String(&quot;&quot;)) || confirmpassword.equals(new String(&quot;&quot;)) || firstname.equals(new String(&quot;&quot;)) || lastname.equals(new String(&quot;&quot;)) || role==null)</span>
+<span class="fc" id="L62">            throw new CompleteAllFieldsException();</span>
+<span class="fc" id="L63">    }</span>
 
     private static void checkConfirmPassword(String password , String confirmpassword) throws ConfirmPasswordException {
-<span class="nc bnc" id="L64" title="All 2 branches missed.">        if(password.equals(confirmpassword) == false)</span>
-<span class="nc" id="L65">            throw new ConfirmPasswordException(password, confirmpassword);</span>
-<span class="nc" id="L66">    }</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if(password.equals(confirmpassword) == false)</span>
+<span class="fc" id="L67">            throw new ConfirmPasswordException(password, confirmpassword);</span>
+<span class="fc" id="L68">    }</span>
 
     private static void checkUserNameLength(String username) throws UserNameNotLongEnough {
-<span class="nc bnc" id="L69" title="All 2 branches missed.">        if(username.length() &lt; 6)</span>
-<span class="nc" id="L70">            throw new UserNameNotLongEnough();</span>
-<span class="nc" id="L71">    }</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if(username.length() &lt; 6)</span>
+<span class="fc" id="L72">            throw new UserNameNotLongEnough();</span>
+<span class="fc" id="L73">    }</span>
 
     private static void checkPasswordLength(String password, String confirmpassword) throws PasswordNotLongEnough {
-<span class="nc bnc" id="L74" title="All 4 branches missed.">        if(password.length() &lt; 6 || confirmpassword.length() &lt; 6)</span>
-<span class="nc" id="L75">            throw new PasswordNotLongEnough();</span>
-<span class="nc" id="L76">    }</span>
+<span class="pc bpc" id="L76" title="1 of 4 branches missed.">        if(password.length() &lt; 6 || confirmpassword.length() &lt; 6)</span>
+<span class="fc" id="L77">            throw new PasswordNotLongEnough();</span>
+<span class="fc" id="L78">    }</span>
 
     private static void checkLoginDataNotEmpty(String usernameFieldLogin , String passwordFieldLogin) throws CompleteLoginDataException
     {
-<span class="nc bnc" id="L80" title="All 4 branches missed.">        if(usernameFieldLogin.equals(new String(&quot;&quot;)) || passwordFieldLogin.equals(new String(&quot;&quot;)))</span>
-<span class="nc" id="L81">            throw new CompleteLoginDataException();</span>
-<span class="nc" id="L82">    }</span>
+<span class="nc bnc" id="L82" title="All 4 branches missed.">        if(usernameFieldLogin.equals(new String(&quot;&quot;)) || passwordFieldLogin.equals(new String(&quot;&quot;)))</span>
+<span class="nc" id="L83">            throw new CompleteLoginDataException();</span>
+<span class="nc" id="L84">    }</span>
 
     public static String FirstNameR(String username) {
 
 
-<span class="nc bnc" id="L87" title="All 2 branches missed.">        for (User user : userRepository.find()) {</span>
-<span class="nc bnc" id="L88" title="All 2 branches missed.">            if (Objects.equals(username, user.getUsername()))</span>
-<span class="nc" id="L89">                return user.getFirstName();</span>
-<span class="nc" id="L90">        }</span>
-<span class="nc" id="L91">            return &quot;&quot;;</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        for (User user : userRepository.find()) {</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">            if (Objects.equals(username, user.getUsername()))</span>
+<span class="nc" id="L91">                return user.getFirstName();</span>
+<span class="nc" id="L92">        }</span>
+<span class="nc" id="L93">            return &quot;&quot;;</span>
     }
 
     public static String LastNameR(String username) {
 
 
-<span class="nc bnc" id="L97" title="All 2 branches missed.">        for (User user : userRepository.find()) {</span>
-<span class="nc bnc" id="L98" title="All 2 branches missed.">            if (Objects.equals(username, user.getUsername()))</span>
-<span class="nc" id="L99">                return user.getLastName();</span>
-<span class="nc" id="L100">        }</span>
-<span class="nc" id="L101">            return &quot;&quot;;</span>
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        for (User user : userRepository.find()) {</span>
+<span class="nc bnc" id="L100" title="All 2 branches missed.">            if (Objects.equals(username, user.getUsername()))</span>
+<span class="nc" id="L101">                return user.getLastName();</span>
+<span class="nc" id="L102">        }</span>
+<span class="nc" id="L103">            return &quot;&quot;;</span>
     }
 
-    private static String encodePassword(String salt, String password) {
-<span class="nc" id="L105">        MessageDigest md = getMessageDigest();</span>
-<span class="nc" id="L106">        md.update(salt.getBytes(StandardCharsets.UTF_8));</span>
+    static String encodePassword(String salt, String password) {
+<span class="fc" id="L107">        MessageDigest md = getMessageDigest();</span>
+<span class="fc" id="L108">        md.update(salt.getBytes(StandardCharsets.UTF_8));</span>
 
-<span class="nc" id="L108">        byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));</span>
+<span class="fc" id="L110">        byte[] hashedPassword = md.digest(password.getBytes(StandardCharsets.UTF_8));</span>
 
         // This is the way a password should be encoded when checking the credentials
-<span class="nc" id="L111">        return new String(hashedPassword, StandardCharsets.UTF_8)</span>
-<span class="nc" id="L112">                .replace(&quot;\&quot;&quot;, &quot;&quot;); //to be able to save in JSON format</span>
+<span class="fc" id="L113">        return new String(hashedPassword, StandardCharsets.UTF_8)</span>
+<span class="fc" id="L114">                .replace(&quot;\&quot;&quot;, &quot;&quot;); //to be able to save in JSON format</span>
     }
 
     private static MessageDigest getMessageDigest() {
         MessageDigest md;
         try {
-<span class="nc" id="L118">            md = MessageDigest.getInstance(&quot;SHA-512&quot;);</span>
-<span class="nc" id="L119">        } catch (NoSuchAlgorithmException e) {</span>
-<span class="nc" id="L120">            throw new IllegalStateException(&quot;SHA-512 does not exist!&quot;);</span>
-<span class="nc" id="L121">        }</span>
-<span class="nc" id="L122">        return md;</span>
+<span class="fc" id="L120">            md = MessageDigest.getInstance(&quot;SHA-512&quot;);</span>
+<span class="nc" id="L121">        } catch (NoSuchAlgorithmException e) {</span>
+<span class="nc" id="L122">            throw new IllegalStateException(&quot;SHA-512 does not exist!&quot;);</span>
+<span class="fc" id="L123">        }</span>
+<span class="fc" id="L124">        return md;</span>
     }
 
+    public static boolean StudentuserName(String username) throws StudentNotSavedInDB {
 
+<span class="nc bnc" id="L129" title="All 2 branches missed.">        for (User user : userRepository.find()) {</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">            if (Objects.equals(username, user.getUsername()))</span>
+<span class="nc" id="L131">                return true;</span>
+<span class="nc" id="L132">        }</span>
+<span class="nc" id="L133">        throw new StudentNotSavedInDB();</span>
+    }
+
+    public static List&lt;User&gt; getAllUsers(){
+<span class="fc" id="L137">        return userRepository.find().toList();</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

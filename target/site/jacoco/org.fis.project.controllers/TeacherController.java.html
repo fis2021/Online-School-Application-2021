@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.fis.project.Main;
 
+import org.fis.project.exceptions.AddSubjectNotTyped;
+import org.fis.project.exceptions.SubjectAlreadyAdded;
 import org.fis.project.model.Catalog;
 import org.fis.project.model.TeacherSubjects;
 import org.fis.project.model.User;
@@ -22,8 +24,10 @@ import org.fis.project.services.CatalogService;
 import java.util.LinkedList;
 
 
-<span class="nc" id="L25">public class TeacherController extends Exception {</span>
+<span class="nc" id="L27">public class TeacherController extends Exception {</span>
 
+    @FXML
+    private Label exceptionsMessage;
     @FXML
     private Label helloMessage;
     @FXML
@@ -38,50 +42,74 @@ import java.util.LinkedList;
 
     @FXML
     public void setHelloMessage(String username) {
-<span class="nc" id="L41">        helloMessage.setText(username);</span>
-<span class="nc" id="L42">    }</span>
+<span class="nc" id="L45">        helloMessage.setText(username);</span>
+<span class="nc" id="L46">    }</span>
 
     @FXML
     public void switchToLogIn() throws Exception {
-<span class="nc" id="L46">        Main.setRoot(&quot;login&quot;);</span>
-<span class="nc" id="L47">    }</span>
+<span class="nc" id="L50">        Main.setRoot(&quot;login&quot;);</span>
+<span class="nc" id="L51">    }</span>
 
     @FXML
     public void switchToSubjects() throws Exception {
-<span class="nc" id="L51">        Main.setRoot(&quot;teacher2&quot;);</span>
+        try {
+            ObservableList&lt;TeacherSubjects&gt; subject;
+<span class="nc" id="L57">            subject = tableView.getSelectionModel().getSelectedItems();</span>
 
-<span class="nc" id="L53">        TeacherSubjectsController controller=Main.getPath().getController();</span>
-        ObservableList&lt;TeacherSubjects&gt; subject;
-<span class="nc" id="L55">        subject=tableView.getSelectionModel().getSelectedItems();</span>
-<span class="nc" id="L56">        controller.setHelloMessage(subject.get(0).getSubjectName());</span>
-<span class="nc" id="L57">        controller.populateDataFromDashboard(teacherUsername,subject.get(0).getSubjectName());</span>
-<span class="nc" id="L58">    }</span>
-
-    public void populateDataFromLogIn(String username){
-<span class="nc" id="L61">        teacherUsername=username;</span>
-<span class="nc" id="L62">        colSubject.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;SubjectName&quot;));</span>
-
-<span class="nc" id="L64">        LinkedList&lt;String&gt; teacherSubject=CatalogService.teacherSubjects(teacherUsername);</span>
-
-<span class="nc bnc" id="L66" title="All 2 branches missed.">        for(String subject:teacherSubject){</span>
-<span class="nc" id="L67">            tableView.getItems().add(new TeacherSubjects(subject));</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">            if(subject.get(0).getSubjectName()!=null){</span>
+<span class="nc" id="L60">                Main.setRoot(&quot;teacher2&quot;);</span>
+<span class="nc" id="L61">                TeacherSubjectsController controller = Main.getPath().getController();</span>
+<span class="nc" id="L62">                controller.setHelloMessage(subject.get(0).getSubjectName());</span>
+<span class="nc" id="L63">                controller.populateDataFromDashboard(teacherUsername, subject.get(0).getSubjectName());</span>
+<span class="nc" id="L64">                exceptionsMessage.setText(&quot;Teacher Main Dashboard&quot;);</span>
+            }
+<span class="nc" id="L66">        }catch (Exception e){</span>
+<span class="nc" id="L67">            exceptionsMessage.setText(&quot;There is no subject selected&quot;);</span>
 <span class="nc" id="L68">        }</span>
 <span class="nc" id="L69">    }</span>
 
+    public void populateDataFromLogIn(String username){
+<span class="nc" id="L72">        teacherUsername=username;</span>
+<span class="nc" id="L73">        colSubject.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;SubjectName&quot;));</span>
+
+<span class="nc" id="L75">        LinkedList&lt;String&gt; teacherSubject=CatalogService.teacherSubjects(teacherUsername);</span>
+
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        for(String subject:teacherSubject){</span>
+<span class="nc" id="L78">            tableView.getItems().add(new TeacherSubjects(subject));</span>
+<span class="nc" id="L79">        }</span>
+<span class="nc" id="L80">    }</span>
+
     public void handleAddingSubject(){
-<span class="nc" id="L72">        CatalogService.addTeacher_Subject(teacherUsername,addSubject.getText());</span>
-<span class="nc" id="L73">        tableView.getItems().add(new TeacherSubjects(addSubject.getText()));</span>
-<span class="nc" id="L74">    }</span>
+
+        try {
+
+<span class="nc" id="L86">            CatalogService.addTeacher_Subject(teacherUsername, addSubject.getText());</span>
+<span class="nc" id="L87">            tableView.getItems().add(new TeacherSubjects(addSubject.getText()));</span>
+
+<span class="nc" id="L89">            exceptionsMessage.setText(&quot;Subject &quot; + addSubject.getText() + &quot; added to dashboard!&quot;);</span>
+<span class="nc" id="L90">        } catch (AddSubjectNotTyped e) {</span>
+
+<span class="nc" id="L92">            exceptionsMessage.setText(&quot;Please type name of subject you want to add!&quot;);</span>
+<span class="nc" id="L93">        } catch (SubjectAlreadyAdded e) {</span>
+
+<span class="nc" id="L95">            exceptionsMessage.setText(&quot;Subject already added!&quot;);</span>
+<span class="nc" id="L96">        }</span>
+
+<span class="nc" id="L98">    }</span>
 
     public void handleRemovingSubject(){
+        try {
+            ObservableList&lt;TeacherSubjects&gt; allSubjects, singleSubjects;
+<span class="nc" id="L103">            singleSubjects = tableView.getSelectionModel().getSelectedItems();</span>
+<span class="nc" id="L104">            CatalogService.clearSubject(teacherUsername, singleSubjects.get(0).getSubjectName());</span>
 
-        ObservableList&lt;TeacherSubjects&gt; allSubjects,singleSubjects;
-<span class="nc" id="L79">        singleSubjects=tableView.getSelectionModel().getSelectedItems();</span>
-<span class="nc" id="L80">        CatalogService.clearSubject(teacherUsername,singleSubjects.get(0).getSubjectName());</span>
-
-<span class="nc" id="L82">        allSubjects= tableView.getItems();</span>
-<span class="nc" id="L83">        singleSubjects.forEach(allSubjects::remove);</span>
-<span class="nc" id="L84">    }</span>
+<span class="nc" id="L106">            allSubjects = tableView.getItems();</span>
+<span class="nc" id="L107">            singleSubjects.forEach(allSubjects::remove);</span>
+<span class="nc" id="L108">            exceptionsMessage.setText(&quot;Teacher Main Dashboard&quot;);</span>
+<span class="nc" id="L109">        }catch (Exception e){</span>
+<span class="nc" id="L110">            exceptionsMessage.setText(&quot;There is no subject selected&quot;);</span>
+<span class="nc" id="L111">        }</span>
+<span class="nc" id="L112">    }</span>
 
 
 }
