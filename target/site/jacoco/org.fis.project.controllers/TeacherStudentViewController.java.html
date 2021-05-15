@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TeacherStudentViewController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">simple-registration-example</a> &gt; <a href="index.source.html" class="el_package">org.fis.project.controllers</a> &gt; <span class="el_source">TeacherStudentViewController.java</span></div><h1>TeacherStudentViewController.java</h1><pre class="source lang-java linenums">package org.fis.project.controllers;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import org.fis.project.Main;
+import org.fis.project.model.SubjectInformation;
+import org.fis.project.services.CatalogService;
+
+<span class="nc" id="L10">public class TeacherStudentViewController {</span>
+
+    @FXML
+    private Label helloMessage;
+    @FXML
+    private TextField agrade;
+    @FXML
+    private TextField aabsence;
+    @FXML
+    private TextField apresence;
+    @FXML
+    private Label finalgrade;
+    @FXML
+    private Label absences;
+    @FXML
+    private Label presences;
+
+    @FXML
+    public void setHelloMessage(String message) {
+<span class="nc" id="L29">        helloMessage.setText(message);</span>
+<span class="nc" id="L30">    }</span>
+
+    @FXML
+    public void switchToLogIn() throws Exception {
+<span class="nc" id="L34">        Main.setRoot(&quot;login&quot;);</span>
+<span class="nc" id="L35">    }</span>
+
+    @FXML
+    public void switchToSubjectView() throws Exception {
+
+<span class="nc" id="L40">        Main.setRoot(&quot;teacher2&quot;);</span>
+<span class="nc" id="L41">        TeacherSubjectsController controller=Main.getPath().getController();</span>
+<span class="nc" id="L42">        controller.setHelloMessage(subjectName);</span>
+<span class="nc" id="L43">        controller.populateDataFromDashboard(teacherUsername,subjectName);</span>
+<span class="nc" id="L44">    }</span>
+
+    private String teacherUsername;
+    private String studentUsername;
+    private String subjectName;
+    public void populateDataFromTeacherSubjects(String teacherUsername,String studentUsername,String subjectName){
+
+<span class="nc" id="L51">        this.teacherUsername=teacherUsername;</span>
+<span class="nc" id="L52">        this.studentUsername=studentUsername;</span>
+<span class="nc" id="L53">        this.subjectName=subjectName;</span>
+<span class="nc" id="L54">    }</span>
+
+    public void handleAddGrade() {
+<span class="nc" id="L57">        CatalogService.addGrade(teacherUsername, studentUsername ,subjectName, agrade.getText());</span>
+<span class="nc" id="L58">        finalgrade.setText(agrade.getText());</span>
+<span class="nc" id="L59">    }</span>
+
+    public void handleAddAbsence() {
+<span class="nc" id="L62">        CatalogService.addAbsence(teacherUsername, studentUsername ,subjectName, aabsence.getText());</span>
+<span class="nc" id="L63">        absences.setText(aabsence.getText());</span>
+<span class="nc" id="L64">    }</span>
+
+    public void handleAddPresence() {
+<span class="nc" id="L67">        CatalogService.addPresence(teacherUsername, studentUsername ,subjectName, apresence.getText());</span>
+<span class="nc" id="L68">        presences.setText(apresence.getText());</span>
+<span class="nc" id="L69">    }</span>
+
+    @FXML
+    public void setGrade(String grade) {
+<span class="nc" id="L73">        finalgrade.setText(grade);</span>
+<span class="nc" id="L74">    }</span>
+
+    @FXML
+    public void setAbsence(String absence) {
+<span class="nc" id="L78">        absences.setText(absence);</span>
+<span class="nc" id="L79">    }</span>
+
+    @FXML
+    public void setPresence(String presence) {
+<span class="nc" id="L83">        presences.setText(presence);</span>
+<span class="nc" id="L84">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TeacherSubjectsController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">simple-registration-example</a> &gt; <a href="index.source.html" class="el_package">org.fis.project.controllers</a> &gt; <span class="el_source">TeacherSubjectsController.java</span></div><h1>TeacherSubjectsController.java</h1><pre class="source lang-java linenums">package org.fis.project.controllers;
+
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import org.fis.project.Main;
+import org.fis.project.model.SubjectInformation;
+import org.fis.project.model.TeacherSubjects;
+import org.fis.project.services.CatalogService;
+
+import java.util.LinkedList;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+<span class="nc" id="L29">public class TeacherSubjectsController {</span>
+
+    @FXML
+    private TextField addStudent;
+    @FXML
+    private Label helloMessage;
+    @FXML
+    private TableView&lt;SubjectInformation&gt; tableView;
+    @FXML
+    private TableColumn&lt;SubjectInformation,String&gt; students;
+
+    @FXML
+    public void setHelloMessage(String message) {
+<span class="nc" id="L42">        helloMessage.setText(message);</span>
+<span class="nc" id="L43">    }</span>
+
+    @FXML
+    public void switchToLogIn() throws Exception {
+<span class="nc" id="L47">        Main.setRoot(&quot;login&quot;);</span>
+<span class="nc" id="L48">    }</span>
+
+    @FXML
+    public void switchToStudentView() throws Exception {
+<span class="nc" id="L52">        Main.setRoot(&quot;teacher5&quot;);</span>
+
+<span class="nc" id="L54">        TeacherStudentViewController controller=Main.getPath().getController();</span>
+        ObservableList&lt;SubjectInformation&gt; student;
+<span class="nc" id="L56">        student=tableView.getSelectionModel().getSelectedItems();</span>
+<span class="nc" id="L57">        controller.setHelloMessage(student.get(0).getStudentName());</span>
+<span class="nc" id="L58">        controller.populateDataFromTeacherSubjects(teacherUsername,student.get(0).getStudentName(),subjectName);</span>
+
+<span class="nc" id="L60">        String grade=CatalogService.searchGrade(teacherUsername, student.get(0).getStudentName(),subjectName);</span>
+<span class="nc" id="L61">        controller.setGrade(grade);</span>
+
+<span class="nc" id="L63">        String absence=CatalogService.searchAbsence(teacherUsername, student.get(0).getStudentName(),subjectName);</span>
+<span class="nc" id="L64">        controller.setAbsence(absence);</span>
+
+<span class="nc" id="L66">        String presence=CatalogService.searchPresence(teacherUsername, student.get(0).getStudentName(),subjectName);</span>
+<span class="nc" id="L67">        controller.setPresence(presence);</span>
+
+<span class="nc" id="L69">    }</span>
+
+    private static String username;
+    public static void setUsername(String username) {
+<span class="nc" id="L73">        TeacherSubjectsController.username = username;</span>
+<span class="nc" id="L74">    }</span>
+
+    @FXML
+    public void switchToTeacher() throws Exception {
+
+<span class="nc" id="L79">        Main.setRoot(&quot;teacher&quot;);</span>
+
+<span class="nc" id="L81">        TeacherController controller=Main.getPath().getController();</span>
+<span class="nc" id="L82">        controller.setHelloMessage(&quot;Welcome &quot;+username);</span>
+<span class="nc" id="L83">        controller.populateDataFromLogIn(username);</span>
+<span class="nc" id="L84">    }</span>
+
+
+
+    public void handleAddStudents() {
+<span class="nc" id="L89">        CatalogService.addTeacher_Student_Subject(teacherUsername,addStudent.getText(),subjectName);</span>
+<span class="nc" id="L90">        tableView.getItems().add(new SubjectInformation(addStudent.getText()));</span>
+<span class="nc" id="L91">    }</span>
+
+    private String teacherUsername;
+    private String subjectName;
+    public void populateDataFromDashboard(String teacherUsername , String subjectName){
+
+<span class="nc" id="L97">        this.teacherUsername=teacherUsername;</span>
+<span class="nc" id="L98">        this.subjectName=subjectName;</span>
+
+<span class="nc" id="L100">        students.setCellValueFactory(new PropertyValueFactory&lt;&gt;(&quot;StudentName&quot;));</span>
+
+<span class="nc" id="L102">        LinkedList&lt;String&gt; students=CatalogService.studentsSubject(teacherUsername,subjectName);</span>
+
+<span class="nc bnc" id="L104" title="All 2 branches missed.">        for(String student:students){</span>
+<span class="nc" id="L105">            tableView.getItems().add(new SubjectInformation(student));</span>
+<span class="nc" id="L106">        }</span>
+<span class="nc" id="L107">    }</span>
+
+    @FXML
+    private Button addcm;
+
+    private static FXMLLoader path;
+
+    @FXML
+    public void handleButtonClick (){
+
+        try {
+<span class="nc" id="L118">            Stage stage2 = new Stage();</span>
+<span class="nc" id="L119">            stage2.setTitle(&quot;Subject materials add&quot;);</span>
+
+<span class="nc" id="L121">            Scene scene2 = new Scene(loadFXML(&quot;teacher3&quot;), 600, 400);</span>
+
+<span class="nc" id="L123">            stage2.getIcons().add(new Image(this.getClass().getResourceAsStream(&quot;/9.png&quot;)));</span>
+
+<span class="nc" id="L125">            stage2.setScene(scene2);</span>
+<span class="nc" id="L126">            stage2.setResizable(false);</span>
+<span class="nc" id="L127">            stage2.setMaximized(false);</span>
+<span class="nc" id="L128">            stage2.centerOnScreen();</span>
+<span class="nc" id="L129">            stage2.initModality(Modality.WINDOW_MODAL);</span>
+
+<span class="nc" id="L131">            TeacherAddMaterialsController controller=path.getController();</span>
+<span class="nc" id="L132">            String materials=CatalogService.searchCourseMaterials(teacherUsername,subjectName);</span>
+<span class="nc" id="L133">            controller.populateDataFromTeacher(teacherUsername,subjectName,materials);</span>
+
+<span class="nc" id="L135">            stage2.show();</span>
+        }
+<span class="nc" id="L137">        catch (Exception e) {</span>
+<span class="nc" id="L138">            e.printStackTrace();</span>
+<span class="nc" id="L139">        }</span>
+
+<span class="nc" id="L141">    }</span>
+
+    @FXML
+    public void handleButtonClick2 (){
+
+        try {
+<span class="nc" id="L147">            Stage stage3 = new Stage();</span>
+<span class="nc" id="L148">            stage3.setTitle(&quot;Homework add&quot;);</span>
+
+<span class="nc" id="L150">            Scene scene3 = new Scene(loadFXML(&quot;teacher4&quot;), 600, 400);</span>
+
+<span class="nc" id="L152">            stage3.getIcons().add(new Image(this.getClass().getResourceAsStream(&quot;/9.png&quot;)));</span>
+
+<span class="nc" id="L154">            stage3.setScene(scene3);</span>
+<span class="nc" id="L155">            stage3.setResizable(false);</span>
+<span class="nc" id="L156">            stage3.setMaximized(false);</span>
+<span class="nc" id="L157">            stage3.centerOnScreen();</span>
+<span class="nc" id="L158">            stage3.initModality(Modality.WINDOW_MODAL);</span>
+
+<span class="nc" id="L160">            TeacherAddHomeworkController controller=path.getController();</span>
+            ObservableList&lt;SubjectInformation&gt; student;
+<span class="nc" id="L162">            student=tableView.getSelectionModel().getSelectedItems();</span>
+<span class="nc" id="L163">            String requirements=CatalogService.searchHomeworkRequirements(teacherUsername,subjectName);</span>
+<span class="nc" id="L164">            String solution=CatalogService.searchHomeworkSolution(teacherUsername,student.get(0).getStudentName(),subjectName);</span>
+<span class="nc" id="L165">            controller.populateDataFromTeacher(teacherUsername,subjectName,requirements,solution);</span>
+
+<span class="nc" id="L167">            stage3.show();</span>
+
+        }
+<span class="nc" id="L170">        catch (Exception e) {</span>
+<span class="nc" id="L171">            e.printStackTrace();</span>
+<span class="nc" id="L172">        }</span>
+
+
+<span class="nc" id="L175">    }</span>
+
+    private static Parent loadFXML(String fxml) throws Exception {
+<span class="nc" id="L178">        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getClassLoader().getResource(fxml + &quot;.fxml&quot;));</span>
+<span class="nc" id="L179">        path=fxmlLoader;</span>
+<span class="nc" id="L180">        return fxmlLoader.load();</span>
+    }
+
+    public static FXMLLoader getPath() {
+<span class="nc" id="L184">        return path;</span>
+    }
+
+
+    public void handleRemoveStudent() {
+        ObservableList&lt;SubjectInformation&gt; allStudents,singleStudent;
+<span class="nc" id="L190">        singleStudent=tableView.getSelectionModel().getSelectedItems();</span>
+
+<span class="nc" id="L192">        CatalogService.clearStudent(teacherUsername,singleStudent.get(0).getStudentName(),subjectName);</span>
+
+<span class="nc" id="L194">        allStudents= tableView.getItems();</span>
+<span class="nc" id="L195">        singleStudent.forEach(allStudents::remove);</span>
+<span class="nc" id="L196">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

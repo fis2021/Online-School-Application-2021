@@ -16,6 +16,7 @@ public class CatalogService {
     private static ObjectRepository<Catalog> catalogRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Catalog.db").toFile())
                 .openOrCreate("test", "test");
