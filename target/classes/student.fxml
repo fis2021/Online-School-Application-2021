@@ -37,7 +37,7 @@
                   <Image url="@14.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Please select subject you want to check info about" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
+            <Label fx:id="warningMessage" alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Please select subject you want to check info about" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
                <font>
                   <Font size="34.0" />
                </font>

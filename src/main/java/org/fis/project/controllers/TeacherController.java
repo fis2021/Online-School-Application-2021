@@ -14,6 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.fis.project.Main;
 
+import org.fis.project.exceptions.AddSubjectNotTyped;
+import org.fis.project.exceptions.SubjectAlreadyAdded;
 import org.fis.project.model.Catalog;
 import org.fis.project.model.TeacherSubjects;
 import org.fis.project.model.User;
@@ -78,8 +80,20 @@ public class TeacherController extends Exception {
     }
 
     public void handleAddingSubject(){
-        CatalogService.addTeacher_Subject(teacherUsername, addSubject.getText());
-        tableView.getItems().add(new TeacherSubjects(addSubject.getText()));
+
+        try {
+
+            CatalogService.addTeacher_Subject(teacherUsername, addSubject.getText());
+            tableView.getItems().add(new TeacherSubjects(addSubject.getText()));
+
+            exceptionsMessage.setText("Subject " + addSubject.getText() + " added to dashboard!");
+        } catch (AddSubjectNotTyped e) {
+
+            exceptionsMessage.setText("Please type name of subject you want to add!");
+        } catch (SubjectAlreadyAdded e) {
+
+            exceptionsMessage.setText("Subject already added!");
+        }
 
     }
 

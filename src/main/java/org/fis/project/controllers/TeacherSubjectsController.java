@@ -16,6 +16,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.fis.project.Main;
+import org.fis.project.exceptions.AddStudentNotTyped;
+import org.fis.project.exceptions.StudentAlreadyAdded;
+import org.fis.project.exceptions.StudentNotSavedInDB;
 import org.fis.project.model.SubjectInformation;
 import org.fis.project.model.TeacherSubjects;
 import org.fis.project.services.CatalogService;
@@ -94,8 +97,24 @@ public class TeacherSubjectsController {
 
 
     public void handleAddStudents() {
-        CatalogService.addTeacher_Student_Subject(teacherUsername,addStudent.getText(),subjectName);
-        tableView.getItems().add(new SubjectInformation(addStudent.getText()));
+
+        try {
+            CatalogService.addTeacher_Student_Subject(teacherUsername, addStudent.getText(), subjectName);
+            tableView.getItems().add(new SubjectInformation(addStudent.getText()));
+
+            exceptionMessage.setText("Student " + addStudent.getText() + " added to class!");
+        } catch (AddStudentNotTyped e) {
+
+            exceptionMessage.setText("Please type username of student you want to add!");
+
+        } catch (StudentAlreadyAdded e) {
+
+            exceptionMessage.setText("Student " + addStudent.getText() + " already added to class!");
+        } catch (StudentNotSavedInDB e) {
+            exceptionMessage.setText("Student " + addStudent.getText() + " has no account yet!");
+        }
+
+
     }
 
     private String teacherUsername;
