@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CatalogService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">simple-registration-example</a> &gt; <a href="index.source.html" class="el_package">org.fis.project.services</a> &gt; <span class="el_source">CatalogService.java</span></div><h1>CatalogService.java</h1><pre class="source lang-java linenums">package org.fis.project.services;
+
+import javafx.util.Pair;
+import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.ObjectRepository;
+import org.fis.project.exceptions.*;
+import org.fis.project.model.Catalog;
+
+import javax.print.DocFlavor;
+import java.util.LinkedList;
+
+import static org.fis.project.services.FileSystemService.getPathToFile;
+
+<span class="nc" id="L14">public class CatalogService {</span>
+
+    private static ObjectRepository&lt;Catalog&gt; catalogRepository;
+
+    public static void initDatabase() {
+<span class="nc" id="L19">        Nitrite database = Nitrite.builder()</span>
+<span class="nc" id="L20">                .filePath(getPathToFile(&quot;Catalog.db&quot;).toFile())</span>
+<span class="nc" id="L21">                .openOrCreate(&quot;test&quot;, &quot;test&quot;);</span>
+
+<span class="nc" id="L23">        catalogRepository = database.getRepository(Catalog.class);</span>
+<span class="nc" id="L24">    }</span>
+
+    public static void addTeacher_Subject(String teacherUsername,String teacherSubject){
+<span class="nc" id="L27">        Catalog c = new Catalog(teacherUsername);</span>
+<span class="nc" id="L28">        c.setSubjectId(teacherSubject);</span>
+<span class="nc" id="L29">        catalogRepository.insert(c);</span>
+<span class="nc" id="L30">    }</span>
+
+    public static void addTeacher_Student_Subject(String teacherUsername,String studentUsername,String subjectName){
+<span class="nc" id="L33">        Catalog c = new Catalog(teacherUsername);</span>
+<span class="nc" id="L34">        c.setSubjectId(subjectName);</span>
+<span class="nc" id="L35">        c.setStudentId(studentUsername);</span>
+<span class="nc" id="L36">        catalogRepository.insert(c);</span>
+<span class="nc" id="L37">    }</span>
+
+    public static void test(){
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc" id="L41">            System.out.println(catalog.getTeacherId()+&quot; &quot;+catalog.getSubjectId() + &quot; &quot;+ catalog.getStudentId()+&quot; &quot;+catalog.getHomeworkRequirements());</span>
+<span class="nc" id="L42">        }</span>
+<span class="nc" id="L43">    }</span>
+
+    public static LinkedList&lt;String&gt; teacherSubjects(String teacherUsername){
+
+<span class="nc" id="L47">        LinkedList&lt;String&gt; teacherSubject =new LinkedList&lt;String&gt;();</span>
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()){</span>
+<span class="nc bnc" id="L50" title="All 4 branches missed.">            if(catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getStudentId()==null){</span>
+<span class="nc" id="L51">                teacherSubject.add(catalog.getSubjectId());</span>
+            }
+<span class="nc" id="L53">        }</span>
+
+<span class="nc" id="L55">        return teacherSubject;</span>
+    }
+
+    public static LinkedList&lt;String&gt; studentsSubject(String teacherUsername,String subjectName){
+
+<span class="nc" id="L60">        LinkedList&lt;String&gt; students =new LinkedList&lt;String&gt;();</span>
+
+<span class="nc bnc" id="L62" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()){</span>
+<span class="nc bnc" id="L63" title="All 6 branches missed.">            if(catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName) &amp;&amp; catalog.getStudentId()!=null){</span>
+<span class="nc" id="L64">                students.add(catalog.getStudentId());</span>
+            }
+<span class="nc" id="L66">        }</span>
+
+<span class="nc" id="L68">        return students;</span>
+    }
+
+    public static LinkedList&lt;Pair&lt;String, String&gt;&gt; studentSubjectsTeachers(String studentUsername) {
+
+<span class="nc" id="L73">        LinkedList&lt;Pair&lt;String,String&gt;&gt; subjects_Teachers=new LinkedList&lt;Pair&lt;String,String&gt;&gt;();</span>
+
+<span class="nc bnc" id="L75" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()){</span>
+<span class="nc bnc" id="L76" title="All 4 branches missed.">            if(catalog.getStudentId()!=null &amp;&amp; catalog.getStudentId().equals(studentUsername)){</span>
+<span class="nc" id="L77">                subjects_Teachers.add(new Pair&lt;String,String&gt;(catalog.getSubjectId(), catalog.getTeacherId()));</span>
+            }
+<span class="nc" id="L79">        }</span>
+
+<span class="nc" id="L81">        return subjects_Teachers;</span>
+    }
+
+    public static void clearSubject(String teacher, String subject){
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc bnc" id="L86" title="All 4 branches missed.">            if(catalog.getTeacherId().equals(teacher) &amp;&amp; catalog.getSubjectId().equals(subject)) {</span>
+<span class="nc" id="L87">                catalogRepository.remove(catalog);</span>
+<span class="nc" id="L88">                break;</span>
+            }
+<span class="nc" id="L90">        }</span>
+<span class="nc" id="L91">    }</span>
+
+    public static void clearStudent(String teacher, String student,String subject){
+<span class="nc bnc" id="L94" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc bnc" id="L95" title="All 8 branches missed.">            if(catalog.getStudentId()!=null &amp;&amp; catalog.getStudentId().equals(student) &amp;&amp; catalog.getTeacherId().equals(teacher) &amp;&amp; catalog.getSubjectId().equals(subject)) {</span>
+<span class="nc" id="L96">                catalogRepository.remove(catalog);</span>
+<span class="nc" id="L97">                break;</span>
+            }
+<span class="nc" id="L99">        }</span>
+<span class="nc" id="L100">    }</span>
+
+    public static void addHomework(String teacherUsername, String subjectName, String requirements) {
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc bnc" id="L104" title="All 6 branches missed.">            if(catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName) &amp;&amp; catalog.getStudentId()==null) {</span>
+<span class="nc" id="L105">                catalog.setHomeworkRequirements(requirements);</span>
+<span class="nc" id="L106">                catalogRepository.update(catalog);</span>
+<span class="nc" id="L107">                break;</span>
+            }
+<span class="nc" id="L109">        }</span>
+<span class="nc" id="L110">    }</span>
+
+    public static String searchHomeworkRequirements(String teacherUsername, String subjectName) {
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        for (Catalog catalog : catalogRepository.find()) {</span>
+<span class="nc bnc" id="L114" title="All 4 branches missed.">            if (catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName)) {</span>
+<span class="nc" id="L115">                return catalog.getHomeworkRequirements();</span>
+            }
+<span class="nc" id="L117">        }</span>
+<span class="nc" id="L118">        return &quot;&quot;;</span>
+    }
+
+
+    public static void addGrade(String teacherUsername, String studentUsername, String subjectName, String grade) {
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc bnc" id="L124" title="All 8 branches missed.">            if (catalog.getStudentId() != null &amp;&amp; catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName) &amp;&amp; catalog.getStudentId().equals(studentUsername)) {</span>
+<span class="nc" id="L125">                catalog.setGrade(grade);</span>
+
+<span class="nc" id="L127">                catalogRepository.update(catalog);</span>
+            }
+<span class="nc" id="L129">        }</span>
+<span class="nc" id="L130">    }</span>
+    public static void addCourseMaterials(String teacherUsername, String subjectName, String materials) {
+<span class="nc bnc" id="L132" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc bnc" id="L133" title="All 6 branches missed.">            if(catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName) &amp;&amp; catalog.getStudentId()==null) {</span>
+<span class="nc" id="L134">                catalog.setCourseMaterials(materials);</span>
+<span class="nc" id="L135">                catalogRepository.update(catalog);</span>
+<span class="nc" id="L136">                break;</span>
+            }
+<span class="nc" id="L138">        }</span>
+<span class="nc" id="L139">    }</span>
+
+    public static String searchGrade(String teacherUsername, String studentUsername , String subjectName) {
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        for (Catalog catalog : catalogRepository.find()) {</span>
+<span class="nc bnc" id="L143" title="All 8 branches missed.">            if (catalog.getStudentId() != null &amp;&amp; catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName) &amp;&amp; catalog.getStudentId().equals(studentUsername)) {</span>
+<span class="nc" id="L144">                return catalog.getGrade();</span>
+            }
+<span class="nc" id="L146">        }</span>
+<span class="nc" id="L147">        return &quot;&quot;;</span>
+    }
+
+    public static void addAbsence(String teacherUsername, String studentUsername, String subjectName, String absence) {
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc bnc" id="L152" title="All 8 branches missed.">            if(catalog.getStudentId()!=null &amp;&amp; catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName) &amp;&amp; catalog.getStudentId().equals(studentUsername)) {</span>
+<span class="nc" id="L153">                catalog.setAbsence(absence);</span>
+<span class="nc" id="L154">                catalogRepository.update(catalog);</span>
+<span class="nc" id="L155">                break;</span>
+            }
+<span class="nc" id="L157">        }</span>
+<span class="nc" id="L158">    }</span>
+
+    public static String searchAbsence(String teacherUsername, String studentUsername , String subjectName) {
+<span class="nc bnc" id="L161" title="All 2 branches missed.">        for (Catalog catalog : catalogRepository.find()) {</span>
+<span class="nc bnc" id="L162" title="All 8 branches missed.">            if (catalog.getStudentId() != null &amp;&amp; catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName) &amp;&amp; catalog.getStudentId().equals(studentUsername)) {</span>
+<span class="nc" id="L163">                return catalog.getAbsence();</span>
+            }
+<span class="nc" id="L165">        }</span>
+<span class="nc" id="L166">        return &quot;&quot;;</span>
+    }
+
+    public static void addPresence(String teacherUsername, String studentUsername, String subjectName, String presence) {
+<span class="nc bnc" id="L170" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc bnc" id="L171" title="All 8 branches missed.">            if(catalog.getStudentId()!=null &amp;&amp; catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName) &amp;&amp; catalog.getStudentId().equals(studentUsername)) {</span>
+<span class="nc" id="L172">                catalog.setPresence(presence);</span>
+<span class="nc" id="L173">                catalogRepository.update(catalog);</span>
+<span class="nc" id="L174">                break;</span>
+            }
+<span class="nc" id="L176">        }</span>
+<span class="nc" id="L177">    }</span>
+
+    public static String searchPresence(String teacherUsername, String studentUsername , String subjectName) {
+<span class="nc bnc" id="L180" title="All 2 branches missed.">        for (Catalog catalog : catalogRepository.find()) {</span>
+<span class="nc bnc" id="L181" title="All 8 branches missed.">            if (catalog.getStudentId() != null &amp;&amp; catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName) &amp;&amp; catalog.getStudentId().equals(studentUsername)) {</span>
+<span class="nc" id="L182">                return catalog.getPresence();</span>
+            }
+<span class="nc" id="L184">        }</span>
+<span class="nc" id="L185">            return &quot;&quot;;</span>
+    }
+
+    public static String searchCourseMaterials(String teacherUsername, String subjectName) {
+<span class="nc bnc" id="L189" title="All 2 branches missed.">        for (Catalog catalog : catalogRepository.find()) {</span>
+<span class="nc bnc" id="L190" title="All 4 branches missed.">            if (catalog.getTeacherId().equals(teacherUsername) &amp;&amp; catalog.getSubjectId().equals(subjectName)) {</span>
+<span class="nc" id="L191">                return catalog.getCourseMaterials();</span>
+            }
+<span class="nc" id="L193">        }</span>
+<span class="nc" id="L194">        return &quot;&quot;;</span>
+    }
+
+    public static void addHomeworkSolution(String teacher, String student,String subject,String solution){
+<span class="nc bnc" id="L198" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc bnc" id="L199" title="All 8 branches missed.">            if(catalog.getStudentId()!=null &amp;&amp; catalog.getStudentId().equals(student) &amp;&amp; catalog.getTeacherId().equals(teacher) &amp;&amp; catalog.getSubjectId().equals(subject)) {</span>
+<span class="nc" id="L200">                catalog.setHomeworkSolution(solution);</span>
+<span class="nc" id="L201">                catalogRepository.update(catalog);</span>
+<span class="nc" id="L202">                break;</span>
+            }
+<span class="nc" id="L204">        }</span>
+<span class="nc" id="L205">    }</span>
+
+    public static String searchHomeworkSolution(String teacher, String student,String subject){
+<span class="nc bnc" id="L208" title="All 2 branches missed.">        for(Catalog catalog:catalogRepository.find()) {</span>
+<span class="nc bnc" id="L209" title="All 8 branches missed.">            if(catalog.getStudentId()!=null &amp;&amp; catalog.getStudentId().equals(student) &amp;&amp; catalog.getTeacherId().equals(teacher) &amp;&amp; catalog.getSubjectId().equals(subject)) {</span>
+<span class="nc" id="L210">                return catalog.getHomeworkSolution();</span>
+            }
+<span class="nc" id="L212">        }</span>
+<span class="nc" id="L213">        return &quot;&quot;;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
