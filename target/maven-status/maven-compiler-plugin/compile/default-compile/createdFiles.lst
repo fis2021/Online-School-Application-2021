@@ -1,0 +1,11 @@
+org\fis\project\exceptions\PresenceNotAccepted.class
+org\fis\project\exceptions\SubjectAlreadyAdded.class
+org\fis\project\exceptions\StudentNotSavedInDB.class
+org\fis\project\exceptions\AddStudentNotTyped.class
+org\fis\project\exceptions\AbsenceNotAccepted.class
+org\fis\project\exceptions\StudentAlreadyAdded.class
+org\fis\project\exceptions\GradeNotAccepted.class
+org\fis\project\exceptions\AddAbsenceEmpty.class
+org\fis\project\exceptions\AddGradeEmpty.class
+org\fis\project\exceptions\AddPresenceEmpty.class
+org\fis\project\exceptions\AddSubjectNotTyped.class

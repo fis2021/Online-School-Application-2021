@@ -122,5 +122,14 @@ public class UserService {
         return md;
     }
 
+    public static boolean StudentuserName(String username) throws StudentNotSavedInDB {
+
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername()))
+                return true;
+        }
+        throw new StudentNotSavedInDB();
+    }
+
 
 }
