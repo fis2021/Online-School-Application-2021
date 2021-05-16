@@ -18,8 +18,8 @@ import static org.fis.project.services.FileSystemService.getPathToFile;
 public class UserService {
 
     private static ObjectRepository<User> userRepository;
-
     public static void initDatabase() {
+
         FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Registration.db").toFile())
@@ -81,26 +81,6 @@ public class UserService {
     {
         if(usernameFieldLogin.equals(new String("")) || passwordFieldLogin.equals(new String("")))
             throw new CompleteLoginDataException();
-    }
-
-    public static String FirstNameR(String username) {
-
-
-        for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getUsername()))
-                return user.getFirstName();
-        }
-            return "";
-    }
-
-    public static String LastNameR(String username) {
-
-
-        for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getUsername()))
-                return user.getLastName();
-        }
-            return "";
     }
 
     static String encodePassword(String salt, String password) {

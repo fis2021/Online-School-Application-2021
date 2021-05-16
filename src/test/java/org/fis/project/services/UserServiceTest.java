@@ -16,8 +16,8 @@ class UserServiceTest {
 
     @BeforeEach
     void setUp() throws Exception{
-        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         FileSystemService.APPLICATION_FOLDER=".test-database";
+        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
     }
 
