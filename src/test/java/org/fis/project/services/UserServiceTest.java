@@ -25,7 +25,6 @@ class UserServiceTest {
 
     @AfterEach
     void tearDown() {
-        System.out.println("After each class");
         UserService.closeDatabase();
     }
 
