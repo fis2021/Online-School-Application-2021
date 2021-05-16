@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.fis.project.services.UserServiceTest" time="0.675" tests="19" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.fis.project.services.UserServiceTest" time="0.755" tests="19" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="14"/>
     <property name="javafx.runtime.version" value="15.0.1+1"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-14-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /home/user/Online-School-Application-2021/target/surefire 2021-05-16T16-03-37_850-jvmRun1 surefire15033785696515563031tmp surefire_03759870541684298933tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /home/user/Online-School-Application-2021/target/surefire 2021-05-16T18-36-51_292-jvmRun1 surefire15086908382255566222tmp surefire_011176763440284558303tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/user/Online-School-Application-2021/target/test-classes:/home/user/Online-School-Application-2021/target/classes:/home/user/.m2/repository/org/openjfx/javafx-controls/15.0.1/javafx-controls-15.0.1.jar:/home/user/.m2/repository/org/openjfx/javafx-controls/15.0.1/javafx-controls-15.0.1-linux.jar:/home/user/.m2/repository/org/openjfx/javafx-graphics/15.0.1/javafx-graphics-15.0.1.jar:/home/user/.m2/repository/org/openjfx/javafx-graphics/15.0.1/javafx-graphics-15.0.1-linux.jar:/home/user/.m2/repository/org/openjfx/javafx-base/15.0.1/javafx-base-15.0.1.jar:/home/user/.m2/repository/org/openjfx/javafx-base/15.0.1/javafx-base-15.0.1-linux.jar:/home/user/.m2/repository/org/openjfx/javafx-fxml/15.0.1/javafx-fxml-15.0.1.jar:/home/user/.m2/repository/org/openjfx/javafx-fxml/15.0.1/javafx-fxml-15.0.1-linux.jar:/home/user/.m2/repository/org/dizitart/nitrite/3.4.3/nitrite-3.4.3.jar:/home/user/.m2/repository/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar:/home/user/.m2/repository/com/h2database/h2-mvstore/1.4.200/h2-mvstore-1.4.200.jar:/home/user/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/user/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar:/home/user/.m2/repository/org/jasypt/jasypt/1.9.3/jasypt-1.9.3.jar:/home/user/.m2/repository/com/squareup/okhttp3/okhttp/4.3.1/okhttp-4.3.1.jar:/home/user/.m2/repository/com/squareup/okio/okio/2.4.1/okio-2.4.1.jar:/home/user/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar:/home/user/.m2/repository/org/jetbrains/kotlin/kotlin-stdlib/1.3.61/kotlin-stdlib-1.3.61.jar:/home/user/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/user/.m2/repository/uk/co/jemos/podam/podam/7.2.3.RELEASE/podam-7.2.3.RELEASE.jar:/home/user/.m2/repository/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar:/home/user/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/home/user/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar:/home/user/.m2/repository/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar:/home/user/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar:/home/user/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar:/home/user/.m2/repository/org/testfx/testfx-core/4.0.16-alpha/testfx-core-4.0.16-alpha.jar:/home/user/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/user/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.5.1/junit-jupiter-api-5.5.1.jar:/home/user/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar:/home/user/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/user/.m2/repository/org/junit/platform/junit-platform-commons/1.5.1/junit-platform-commons-1.5.1.jar:/home/user/.m2/repository/org/testfx/testfx-junit5/4.0.16-alpha/testfx-junit5-4.0.16-alpha.jar:/home/user/.m2/repository/org/assertj/assertj-core/3.13.2/assertj-core-3.13.2.jar:/home/user/.m2/repository/commons-io/commons-io/2.8.0/commons-io-2.8.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -52,23 +52,23 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="58.0"/>
   </properties>
-  <testcase name="selectPassword" classname="org.fis.project.services.UserServiceTest" time="0.04"/>
-  <testcase name="selectRole" classname="org.fis.project.services.UserServiceTest" time="0.035"/>
-  <testcase name="usernameNotLongEnough" classname="org.fis.project.services.UserServiceTest" time="0.036"/>
-  <testcase name="addUserDatabase" classname="org.fis.project.services.UserServiceTest" time="0.095"/>
-  <testcase name="checkCredentials" classname="org.fis.project.services.UserServiceTest" time="0.043"/>
-  <testcase name="completePasswordLogInFields" classname="org.fis.project.services.UserServiceTest" time="0.036"/>
-  <testcase name="searchStudentDatabaseException" classname="org.fis.project.services.UserServiceTest" time="0.034"/>
-  <testcase name="selectRetypePassword" classname="org.fis.project.services.UserServiceTest" time="0.028"/>
-  <testcase name="selectLastName" classname="org.fis.project.services.UserServiceTest" time="0.028"/>
-  <testcase name="selectFirstName" classname="org.fis.project.services.UserServiceTest" time="0.03"/>
-  <testcase name="addSecondUser" classname="org.fis.project.services.UserServiceTest" time="0.03"/>
-  <testcase name="searchStudentDatabase" classname="org.fis.project.services.UserServiceTest" time="0.03"/>
-  <testcase name="selectUsername" classname="org.fis.project.services.UserServiceTest" time="0.026"/>
-  <testcase name="checkInvalidCredentials" classname="org.fis.project.services.UserServiceTest" time="0.032"/>
-  <testcase name="initializeDatabase" classname="org.fis.project.services.UserServiceTest" time="0.026"/>
-  <testcase name="passwordNotLongEnough" classname="org.fis.project.services.UserServiceTest" time="0.031"/>
-  <testcase name="completeUsernameLogInFields" classname="org.fis.project.services.UserServiceTest" time="0.028"/>
-  <testcase name="equalsPassword" classname="org.fis.project.services.UserServiceTest" time="0.028"/>
-  <testcase name="encodePassword" classname="org.fis.project.services.UserServiceTest" time="0.026"/>
+  <testcase name="selectPassword" classname="org.fis.project.services.UserServiceTest" time="0.044"/>
+  <testcase name="selectRole" classname="org.fis.project.services.UserServiceTest" time="0.038"/>
+  <testcase name="usernameNotLongEnough" classname="org.fis.project.services.UserServiceTest" time="0.038"/>
+  <testcase name="addUserDatabase" classname="org.fis.project.services.UserServiceTest" time="0.084"/>
+  <testcase name="checkCredentials" classname="org.fis.project.services.UserServiceTest" time="0.037"/>
+  <testcase name="completePasswordLogInFields" classname="org.fis.project.services.UserServiceTest" time="0.035"/>
+  <testcase name="searchStudentDatabaseException" classname="org.fis.project.services.UserServiceTest" time="0.038"/>
+  <testcase name="selectRetypePassword" classname="org.fis.project.services.UserServiceTest" time="0.029"/>
+  <testcase name="selectLastName" classname="org.fis.project.services.UserServiceTest" time="0.038"/>
+  <testcase name="selectFirstName" classname="org.fis.project.services.UserServiceTest" time="0.038"/>
+  <testcase name="addSecondUser" classname="org.fis.project.services.UserServiceTest" time="0.047"/>
+  <testcase name="searchStudentDatabase" classname="org.fis.project.services.UserServiceTest" time="0.049"/>
+  <testcase name="selectUsername" classname="org.fis.project.services.UserServiceTest" time="0.037"/>
+  <testcase name="checkInvalidCredentials" classname="org.fis.project.services.UserServiceTest" time="0.046"/>
+  <testcase name="initializeDatabase" classname="org.fis.project.services.UserServiceTest" time="0.035"/>
+  <testcase name="passwordNotLongEnough" classname="org.fis.project.services.UserServiceTest" time="0.029"/>
+  <testcase name="completeUsernameLogInFields" classname="org.fis.project.services.UserServiceTest" time="0.025"/>
+  <testcase name="equalsPassword" classname="org.fis.project.services.UserServiceTest" time="0.025"/>
+  <testcase name="encodePassword" classname="org.fis.project.services.UserServiceTest" time="0.028"/>
 </testsuite>
