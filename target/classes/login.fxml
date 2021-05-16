@@ -39,17 +39,17 @@
                         <Font size="23.0" />
                     </font>
                 </Label>
-                <TextField fx:id="usernameFieldLogin" layoutX="325.0" layoutY="340.0" promptText="Type username here ...">
+                <TextField id="username" fx:id="usernameFieldLogin" layoutX="325.0" layoutY="340.0" promptText="Type username here ...">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </TextField>
-                <PasswordField fx:id="passwordFieldLogin" layoutX="325.0" layoutY="401.0" promptText="Type password here ...">
+                <PasswordField id="password" fx:id="passwordFieldLogin" layoutX="325.0" layoutY="401.0" promptText="Type password here ...">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </PasswordField>
-                <Button layoutX="357.0" layoutY="525.0" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="46.0" prefWidth="146.0" text="Log in">
+                <Button id="loginButton" layoutX="357.0" layoutY="525.0" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="46.0" prefWidth="146.0" text="Log in">
                     <font>
                         <Font size="24.0" />
                     </font>

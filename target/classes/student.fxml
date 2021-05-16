@@ -14,14 +14,14 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" SplitPane.resizableWithParent="false">
          <children>
-            <Button layoutX="1434.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="94.0" text="Log Out">
+            <Button id="logout" layoutX="1434.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="94.0" text="Log Out">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Button>
-            <TableView fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+            <TableView id="table" fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
               <columns>
-                <TableColumn fx:id="subject" prefWidth="773.6000304818153" resizable="false" text="Subject" />
-                <TableColumn fx:id="teacher" prefWidth="758.3999633789062" resizable="false" text="Teacher" />
+                <TableColumn id="tablec1" fx:id="subject" prefWidth="773.6000304818153" resizable="false" text="Subject" />
+                <TableColumn id="tablec2" fx:id="teacher" prefWidth="758.3999633789062" resizable="false" text="Teacher" />
               </columns>
             </TableView>
             <Label fx:id="helloMessage" layoutX="456.0" layoutY="20.0" prefHeight="30.0" prefWidth="568.0" text="Hello student!">
@@ -37,22 +37,22 @@
                   <Image url="@14.png" />
                </image>
             </ImageView>
-            <Label fx:id="warningMessage" alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Please select subject you want to check info about" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
+            <Label id="msg" fx:id="warningMessage" alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Please select subject you want to check info about" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
                <font>
                   <Font size="34.0" />
                </font>
             </Label>
-            <Button layoutX="91.0" layoutY="170.0" mnemonicParsing="false" onAction="#switchToInformationView" prefHeight="51.0" prefWidth="420.0" text="See grades and attendence record">
+            <Button id="seegrades" layoutX="91.0" layoutY="170.0" mnemonicParsing="false" onAction="#switchToInformationView" prefHeight="51.0" prefWidth="420.0" text="See grades and attendence record">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="560.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleCourseMaterial" prefHeight="51.0" prefWidth="454.0" text="See course materials">
+            <Button id="seematerials" layoutX="560.0" layoutY="170.0" mnemonicParsing="false" onAction="#handleCourseMaterial" prefHeight="51.0" prefWidth="454.0" text="See course materials">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="1058.0" layoutY="170.0" mnemonicParsing="false" onAction="#addSolution" prefHeight="51.0" prefWidth="398.0" text="Upload homework">
+            <Button id="loadhomework" layoutX="1058.0" layoutY="170.0" mnemonicParsing="false" onAction="#addSolution" prefHeight="51.0" prefWidth="398.0" text="Upload homework">
                <font>
                   <Font size="24.0" />
                </font>

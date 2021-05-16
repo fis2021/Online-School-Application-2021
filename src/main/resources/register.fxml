@@ -60,7 +60,7 @@
                         <Font size="21.0" />
                     </font>
                 </Label>
-                <Label fx:id="registrationMessage" alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="93.0" text="Please enter registration credentials" textAlignment="CENTER" textFill="#ef0808" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="216.8">
+                <Label fx:id="registrationMessage" id="regmsg" alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="93.0" text="Please enter registration credentials" textAlignment="CENTER" textFill="#ef0808" textOverrun="CENTER_ELLIPSIS" wrapText="true" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="216.8">
                     <font>
                         <Font size="20.0" />
                     </font>
@@ -75,42 +75,42 @@
                         <Font size="21.0" />
                     </font>
                 </Label>
-                <TextField fx:id="firstnameField" layoutX="359.0" layoutY="223.0" promptText="First name">
+                <TextField fx:id="firstnameField" id="firstname" layoutX="359.0" layoutY="223.0" promptText="First name">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="lastnameField" layoutX="359.0" layoutY="301.0" promptText="Last name">
+                <TextField fx:id="lastnameField" id="lastname" layoutX="359.0" layoutY="301.0" promptText="Last name">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="usernameField" layoutX="359.0" layoutY="384.0" promptText="Username">
+                <TextField fx:id="usernameField" id="username" layoutX="359.0" layoutY="384.0" promptText="Username">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </TextField>
-                <PasswordField fx:id="passwordField" layoutX="359.0" layoutY="462.0" promptText="Password">
+                <PasswordField fx:id="passwordField" id="password" layoutX="359.0" layoutY="462.0" promptText="Password">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </PasswordField>
-                <PasswordField fx:id="confirmpasswordField" layoutX="359.0" layoutY="544.0" promptText="Confirm Password">
+                <PasswordField fx:id="confirmpasswordField" id="confirmpassword" layoutX="359.0" layoutY="544.0" promptText="Confirm Password">
                     <font>
                         <Font size="17.0" />
                     </font>
                 </PasswordField>
-                <Button layoutX="391.0" layoutY="609.0" mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="46.0" prefWidth="146.0" text="Register">
+                <Button fx:id="register" id="reg"  layoutX="391.0" layoutY="609.0" mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="46.0" prefWidth="146.0" text="Register">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="391.0" layoutY="721.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="43.0" prefWidth="147.0" text="Log in">
+                <Button id="login" layoutX="391.0" layoutY="721.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="43.0" prefWidth="147.0" text="Log in">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <ChoiceBox fx:id="role" layoutX="359.0" layoutY="154.0" prefHeight="34.0" prefWidth="211.0" stylesheets="@combo.css" />
+                <ChoiceBox id="rolec" fx:id="role" layoutX="359.0" layoutY="154.0" prefHeight="34.0" prefWidth="211.0" stylesheets="@combo.css" />
             </children>
         </AnchorPane>
     </center>
