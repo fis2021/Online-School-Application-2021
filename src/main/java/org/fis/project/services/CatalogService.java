@@ -7,9 +7,11 @@ import org.dizitart.no2.objects.ObjectRepository;
 import org.fis.project.exceptions.*;
 import org.fis.project.model.Catalog;
 import org.fis.project.model.TeacherSubjects;
+import org.fis.project.model.User;
 
 import javax.print.DocFlavor;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
 import static org.fis.project.services.FileSystemService.getPathToFile;
@@ -18,13 +20,19 @@ public class CatalogService {
 
     private static ObjectRepository<Catalog> catalogRepository;
 
+    private static Nitrite database;
+
     public static void initDatabase() {
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Catalog.db").toFile())
                 .openOrCreate("test", "test");
 
         catalogRepository = database.getRepository(Catalog.class);
+    }
+
+    public static void closeDatabase() {
+        database.close();
     }
 
     public static void addTeacher_Subject(String teacherUsername,String teacherSubject) throws AddSubjectNotTyped,SubjectAlreadyAdded  {
@@ -293,6 +301,10 @@ public class CatalogService {
         if (Integer.parseInt(absence) < 0)
                 throw new AbsenceNotAccepted();
 
+    }
+
+    public static List <Catalog> getAllUsers () {
+        return catalogRepository.find().toList();
     }
 
 }
