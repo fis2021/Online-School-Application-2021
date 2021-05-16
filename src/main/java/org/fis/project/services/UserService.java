@@ -19,13 +19,19 @@ public class UserService {
 
     private static ObjectRepository<User> userRepository;
 
+    private static Nitrite database;
+
     public static void initDatabase() {
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Registration.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
+    }
+
+    public static void closeDatabase() {
+        database.close();
     }
 
     public static void addUser(String username, String password, String confirmpassword, String role, String firstname, String lastname) throws UsernameAlreadyExistsException, CompleteAllFieldsException, ConfirmPasswordException, UserNameNotLongEnough, PasswordNotLongEnough {

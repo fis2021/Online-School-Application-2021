@@ -3,6 +3,7 @@ package org.fis.project.services;
 import org.apache.commons.io.FileUtils;
 import org.fis.project.exceptions.*;
 import org.fis.project.model.User;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,9 +17,16 @@ class UserServiceTest {
 
     @BeforeEach
     void setUp() throws Exception{
-        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         FileSystemService.APPLICATION_FOLDER=".test-database";
+        FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
+
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("After each class");
+        UserService.closeDatabase();
     }
 
     @Test
