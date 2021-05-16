@@ -1,3 +1,3 @@
-org/fis/project/controllers/TeacherControllerTest.class
+org/fis/project/controllers/TeacherInterfacesTest.class
 org/fis/project/services/UserServiceTest.class
 org/fis/project/LogInTest.class

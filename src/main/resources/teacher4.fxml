@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.TeacherAddHomeworkController">
     <children>
-        <Label layoutX="55.0" layoutY="14.0" prefHeight="32.0" prefWidth="202.0" text="Homework requirements:">
+        <Label id="homeworkRequirements" layoutX="55.0" layoutY="14.0" prefHeight="32.0" prefWidth="202.0" text="Homework requirements:">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
@@ -20,7 +20,7 @@
         </Label>
       <TextArea fx:id="homeworkRequirements" layoutX="55.0" layoutY="46.0" prefHeight="91.0" prefWidth="490.0" />
       <TextArea fx:id="homeworkSolution" layoutX="55.0" layoutY="171.0" prefHeight="170.0" prefWidth="490.0" />
-      <Button fx:id="addHmButton" layoutX="439.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleHmRequirements" prefHeight="32.0" prefWidth="121.0" text="Add homework">
+      <Button id="addTeacherHomeworkButton" fx:id="addHmButton" layoutX="439.0" layoutY="354.0" mnemonicParsing="false" onAction="#handleHmRequirements" prefHeight="32.0" prefWidth="121.0" text="Add homework">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>

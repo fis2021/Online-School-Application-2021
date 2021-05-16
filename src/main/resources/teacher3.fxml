@@ -8,13 +8,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis.project.controllers.TeacherAddMaterialsController">
    <children>
-      <Label layoutX="54.0" layoutY="26.0" prefHeight="32.0" prefWidth="202.0" text="Material body:">
+      <Label id="writeCourseMaterial" layoutX="54.0" layoutY="26.0" prefHeight="32.0" prefWidth="202.0" text="Material body:">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <TextArea fx:id="courseMaterials" layoutX="54.0" layoutY="66.0" prefHeight="274.0" prefWidth="490.0" />
-      <Button layoutX="436.0" layoutY="355.0" mnemonicParsing="false" onAction="#addCourseMaterials" prefHeight="32.0" prefWidth="105.0" text="Add material">
+      <Button id="teacherCourseMaterialButton" layoutX="436.0" layoutY="355.0" mnemonicParsing="false" onAction="#addCourseMaterials" prefHeight="32.0" prefWidth="105.0" text="Add material">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>

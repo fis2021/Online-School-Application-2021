@@ -100,37 +100,37 @@
                         <Image url="@14.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="warningMessage" alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Teacher-&gt;Student Dashboard" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
+                <Label id="evaluateMistakeMessage" fx:id="warningMessage" alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Teacher-&gt;Student Dashboard" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
                     <font>
                         <Font size="34.0" />
                     </font>
                 </Label>
-                <Button layoutX="126.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddGrade" prefHeight="51.0" prefWidth="329.0" text="Add grade">
+                <Button id="giveGradeButton" layoutX="126.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddGrade" prefHeight="51.0" prefWidth="329.0" text="Add grade">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="595.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddPresence" prefHeight="51.0" prefWidth="329.0" text="Add presence">
+                <Button id="givePresenceButton" layoutX="595.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddPresence" prefHeight="51.0" prefWidth="329.0" text="Add presence">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="1093.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddAbsence" prefHeight="51.0" prefWidth="329.0" text="Add absence">
+                <Button id="giveAbsenceButton" layoutX="1093.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddAbsence" prefHeight="51.0" prefWidth="329.0" text="Add absence">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <TextField fx:id="agrade" alignment="CENTER" layoutX="126.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" promptText="Type grade to add...">
+                <TextField id="giveGrade" fx:id="agrade" alignment="CENTER" layoutX="126.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" promptText="Type grade to add...">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="apresence" alignment="CENTER" layoutX="594.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" promptText="Type number of presences to add...">
+                <TextField id="givePresence" fx:id="apresence" alignment="CENTER" layoutX="594.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" promptText="Type number of presences to add...">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="aabsence" alignment="CENTER" layoutX="1092.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" promptText="Type number of absences to add...">
+                <TextField id="giveAbsence" fx:id="aabsence" alignment="CENTER" layoutX="1092.0" layoutY="129.0" prefHeight="51.0" prefWidth="330.0" promptText="Type number of absences to add...">
                     <font>
                         <Font size="14.0" />
                     </font>

@@ -19,9 +19,9 @@
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <TableView fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                <TableView id="subjectStudents" fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                     <columns>
-                        <TableColumn fx:id="students" prefWidth="1530.0" resizable="false" text="Students" />
+                        <TableColumn id="studentsCol" fx:id="students" prefWidth="1530.0" resizable="false" text="Students" />
                     </columns>
                 </TableView>
                 <Label fx:id="helloMessage" layoutX="713.0" layoutY="20.0" prefHeight="18.0" prefWidth="186.0" text="Subject">
@@ -29,7 +29,7 @@
                         <Font name="Arial Bold" size="24.0" />
                     </font>
                 </Label>
-            <ImageView fitHeight="41.0" fitWidth="59.0" layoutX="6.0" layoutY="9.0" onMouseClicked="#switchToTeacher" pickOnBounds="true" preserveRatio="true">
+            <ImageView id="backToTeacherButton" fitHeight="41.0" fitWidth="59.0" layoutX="6.0" layoutY="9.0" onMouseClicked="#switchToTeacher" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@17.png" />
                </image>
@@ -42,37 +42,37 @@
                         <Image url="@14.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="exceptionMessage" alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Teacher Subject Dashboard" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
+                <Label id="teacher2Exceptions" fx:id="exceptionMessage" alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Teacher Subject Dashboard" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
                     <font>
                         <Font size="34.0" />
                     </font>
                 </Label>
-                <Button layoutX="148.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleAddStudents" prefHeight="51.0" prefWidth="330.0" text="Add student">
+                <Button id="addStudentButton" layoutX="148.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleAddStudents" prefHeight="51.0" prefWidth="330.0" text="Add student">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="148.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleRemoveStudent" prefHeight="51.0" prefWidth="330.0" text="Delete student">
+                <Button id="deleteStudentButton" layoutX="148.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleRemoveStudent" prefHeight="51.0" prefWidth="330.0" text="Delete student">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="609.0" layoutY="146.0" mnemonicParsing="false" onAction="#switchToStudentView" prefHeight="51.0" prefWidth="329.0" text="View or evaluate student">
+                <Button id="evaluateStudentButton" layoutX="609.0" layoutY="146.0" mnemonicParsing="false" onAction="#switchToStudentView" prefHeight="51.0" prefWidth="329.0" text="View or evaluate student">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <TextField fx:id="addStudent" layoutX="148.0" layoutY="38.0" prefHeight="50.0" prefWidth="330.0" promptText="Type username of student  to add here...">
+                <TextField id="addStudent" fx:id="addStudent" layoutX="148.0" layoutY="38.0" prefHeight="50.0" prefWidth="330.0" promptText="Type username of student  to add here...">
                     <font>
                         <Font size="16.0" />
                     </font>
                 </TextField>
-            <Button fx:id="addcm" layoutX="1052.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="51.0" prefWidth="329.0" text="Add course material">
+            <Button id="addCourseButton" fx:id="addcm" layoutX="1052.0" layoutY="103.0" mnemonicParsing="false" onAction="#handleButtonClick" prefHeight="51.0" prefWidth="329.0" text="Add course material">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <Button fx:id="addhm" layoutX="1052.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleButtonClick2" prefHeight="51.0" prefWidth="329.0" text="Homework assignment">
+            <Button id="addHomeworkButton" fx:id="addhm" layoutX="1052.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleButtonClick2" prefHeight="51.0" prefWidth="329.0" text="Homework assignment">
                <font>
                   <Font size="24.0" />
                </font>
