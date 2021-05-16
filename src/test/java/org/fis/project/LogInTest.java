@@ -76,7 +76,7 @@ class LogInTest {
     }
 
     @Test
-    @DisplayName("All log in exceptions")
+    @DisplayName("Please complete all LogIn fields")
     void loginErrors(FxRobot robot) throws ConfirmPasswordException, UsernameAlreadyExistsException, CompleteAllFieldsException, PasswordNotLongEnough, UserNameNotLongEnough {
         UserService.addUser(ADMIN_123, ADMIN_123, ADMIN_123,"Teacher", ADMIN_123, ADMIN_123);
         Assertions.assertThat(robot.lookup("#message").queryAs(Label.class)).hasText("Please enter username and password");

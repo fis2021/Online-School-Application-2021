@@ -15,13 +15,13 @@
     <items>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
             <children>
-                <Button layoutX="1365.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="163.0" text="Log Out">
+                <Button id="logOut" layoutX="1365.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToLogIn" prefHeight="29.0" prefWidth="163.0" text="Log Out">
                     <font>
                         <Font name="System Bold" size="14.0" />
                     </font></Button>
-                <TableView fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+                <TableView id="table" fx:id="tableView" prefHeight="501.6" prefWidth="1549.6" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
                     <columns>
-                        <TableColumn fx:id="colSubject" prefWidth="1534.3998230099678" resizable="false" text="Subjects" />
+                        <TableColumn id="tableCol" fx:id="colSubject" prefWidth="1534.3998230099678" resizable="false" text="Subjects" />
                     </columns>
                 </TableView>
             <Label fx:id="helloMessage" alignment="CENTER" layoutX="483.0" layoutY="20.0" prefHeight="30.0" prefWidth="555.0" text="Hello teacher!" textAlignment="CENTER">
@@ -37,27 +37,27 @@
                         <Image url="@14.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="exceptionsMessage" alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Teacher Main Dashboard" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
+                <Label id="message" fx:id="exceptionsMessage" alignment="CENTER" layoutX="291.0" layoutY="56.0" prefHeight="50.0" prefWidth="967.0" text="Teacher Main Dashboard" textFill="WHITE" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="292.0">
                     <font>
                         <Font size="34.0" />
                     </font>
                 </Label>
-                <Button layoutX="148.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddingSubject" prefHeight="51.0" prefWidth="330.0" text="Add subject">
+                <Button id="addButton" layoutX="148.0" layoutY="203.0" mnemonicParsing="false" onAction="#handleAddingSubject" prefHeight="51.0" prefWidth="330.0" text="Add subject">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="597.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleRemovingSubject" prefHeight="51.0" prefWidth="330.0" text="Delete subject">
+                <Button id="deleteButton" layoutX="597.0" layoutY="155.0" mnemonicParsing="false" onAction="#handleRemovingSubject" prefHeight="51.0" prefWidth="330.0" text="Delete subject">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-                <Button layoutX="1066.0" layoutY="155.0" mnemonicParsing="false" onAction="#switchToSubjects" prefHeight="51.0" prefWidth="329.0" text="See subject information">
+                <Button id="informationButton" layoutX="1066.0" layoutY="155.0" mnemonicParsing="false" onAction="#switchToSubjects" prefHeight="51.0" prefWidth="329.0" text="See subject information">
                     <font>
                         <Font size="24.0" />
                     </font>
                 </Button>
-            <TextField fx:id="addSubject" layoutX="148.0" layoutY="122.0" prefHeight="50.0" prefWidth="330.0" promptText="Type subject to add here...">
+            <TextField id="addSubject" fx:id="addSubject" layoutX="148.0" layoutY="122.0" prefHeight="50.0" prefWidth="330.0" promptText="Type subject to add here...">
                <font>
                   <Font size="18.0" />
                </font>
