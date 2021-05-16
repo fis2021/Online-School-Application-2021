@@ -19,19 +19,13 @@ public class UserService {
 
     private static ObjectRepository<User> userRepository;
 
-    private static Nitrite database;
-
     public static void initDatabase() {
         FileSystemService.initDirectory();
-        database = Nitrite.builder()
+        Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("Registration.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
-    }
-
-    public static void closeDatabase() {
-        database.close();
     }
 
     public static void addUser(String username, String password, String confirmpassword, String role, String firstname, String lastname) throws UsernameAlreadyExistsException, CompleteAllFieldsException, ConfirmPasswordException, UserNameNotLongEnough, PasswordNotLongEnough {
@@ -87,26 +81,6 @@ public class UserService {
     {
         if(usernameFieldLogin.equals(new String("")) || passwordFieldLogin.equals(new String("")))
             throw new CompleteLoginDataException();
-    }
-
-    public static String FirstNameR(String username) {
-
-
-        for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getUsername()))
-                return user.getFirstName();
-        }
-            return "";
-    }
-
-    public static String LastNameR(String username) {
-
-
-        for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getUsername()))
-                return user.getLastName();
-        }
-            return "";
     }
 
     static String encodePassword(String salt, String password) {
